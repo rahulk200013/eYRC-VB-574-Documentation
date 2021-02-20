@@ -1,0 +1,31 @@
+Vargi Bots Simulation Packages
+==============================
+
+* These contain the simulation environment that is being used in this project.
+
+* The packages can be found in the following Github repo.
+
+* To install this ``cd`` into your ROS Workspace's ``src`` folder and then enter the following command there.
+
+   .. code-block:: bash
+
+      git clone https://github.com/e-yantra-r3/vb_simulation_pkgs.git
+
+* Once the repo is cloned build your workspace and source the ``setup.bash`` of your workspace.
+
+* To check if everything is installed properly enter the following command.
+
+   .. code-block:: bash
+
+      roslaunch pkg_vb_sim task5_simulation.launch
+
+   If everything is in place you should see the following environment in Gazebo.
+
+
+   .. image:: /images/t5_sim_env.png
+
+|
+
+
+
+

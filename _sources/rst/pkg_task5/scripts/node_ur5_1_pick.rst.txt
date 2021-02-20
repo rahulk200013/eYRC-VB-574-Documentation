@@ -1,0 +1,7 @@
+.. _node_ur5_1_pick:
+
+node_ur5_1_pick
+======================
+
+.. automodule:: node_ur5_1_pick
+   :members:

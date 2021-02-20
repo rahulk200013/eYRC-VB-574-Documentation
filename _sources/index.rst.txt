@@ -1,0 +1,36 @@
+.. eYRC VB Task 5 documentation master file, created by
+   sphinx-quickstart on Tue Feb 16 11:38:58 2021.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to eYRC VB#0574 Task 5's documentation!
+===============================================
+
+|
+
+.. toctree::
+   :maxdepth: 1
+   :numbered:
+   :caption: Contents
+
+   rst/software_specs.rst
+   rst/installations.rst
+   rst/introduction.rst
+   rst/implementation.rst
+   rst/api_documentation.rst
+
+Indices and Source Codes
+------------------------
+
+* :ref:`genindex`
+* `Source Codes <_modules/index.html>`_
+
+|
+
+Contact Us:
+-----------
+
+* `Github <https://github.com/rahulk200013>`_
+* `E-Mail <mailto:rahulk200013@gmail.com>`_
+
+   

@@ -1,0 +1,26 @@
+.. _NewOrder:
+
+NewOrder.msg
+============
+
+|
+
+
+Description
+-----------
+
+Message type to share information about the new order placed on MQTT topic.
+
+This information will be used by the UR5_1 arm to decide the package to pickup from the shelf as well as to 
+update the "DispatchedOrders" spreadsheet.
+
+.. code-block:: python
+
+   # Stores details of incoming orders placed on MQTT topic
+
+   string order 
+
+Parameters
+----------
+
+**order**\(JSON formatted String) - All the details of order like Order ID, City, Item, etc.

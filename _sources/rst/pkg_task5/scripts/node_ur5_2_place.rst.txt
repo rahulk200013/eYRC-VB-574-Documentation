@@ -1,0 +1,7 @@
+.. _node_ur5_2_place:
+
+node_ur5_2_place
+======================
+
+.. automodule:: node_ur5_2_place
+   :members:

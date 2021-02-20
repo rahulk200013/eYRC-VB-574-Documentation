@@ -1,0 +1,30 @@
+.. _api:
+
+API Documentation
+=================
+
+Some long text or paragraph.
+
+Package Task 5
+--------------
+
+.. toctree:: 
+   :maxdepth: 1
+
+   pkg_task5/python_scripts.rst
+   pkg_task5/msg_files.rst
+   pkg_task5/launch_files.rst
+   pkg_task5/YAML_files.rst
+
+
+Package Ros-IoT Bridge
+----------------------
+
+.. toctree:: 
+   :maxdepth: 1
+
+   pkg_ros_iot_bridge/python_scripts.rst
+   pkg_ros_iot_bridge/msg_files.rst
+   pkg_ros_iot_bridge/action_files.rst
+   pkg_ros_iot_bridge/config_files.rst
+

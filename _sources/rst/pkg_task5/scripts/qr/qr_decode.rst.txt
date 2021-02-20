@@ -1,0 +1,7 @@
+.. _node_qr_decode:
+
+qr/qr_decode
+============
+
+.. automodule:: qr.qr_decode
+   :members:

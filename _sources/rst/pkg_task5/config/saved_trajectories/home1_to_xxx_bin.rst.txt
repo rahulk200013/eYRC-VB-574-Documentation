@@ -1,0 +1,14 @@
+.. _home1_to_xxx_bin:
+
+home1_to_xxx_bin.yaml
+=====================
+
+|
+
+Description
+-----------
+
+Saved trajectory to go to bin \ **xxx** from home position #1. 
+
+Where **xxx** can be 'red', 'yellow' or 'green'.
+

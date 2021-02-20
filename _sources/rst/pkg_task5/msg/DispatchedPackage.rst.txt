@@ -1,0 +1,32 @@
+.. _DispatchedPackage:
+
+DispatchedPackage.msg
+=====================
+
+|
+
+
+Description
+-----------
+
+Message type to share information about the package which has been dispatched by the UR5_1 arm.
+
+This information will be used by the UR5_2 arm to decide the bin in which to drop the package as well as to 
+update the "ShippedOrders" spreadsheet.
+
+.. code-block:: python
+
+   # Stores pkg colour and it's name of incoming pkg to ur5_2
+
+   string name                 # Name of the package to pick
+   string colour               # package colour
+   string order_details        # All the details of order like City, Priority, Order ID, etc.
+
+Parameters
+----------
+
+**name**\(string) - Name of the package (*packagen00, packagen01, etc.*)
+
+**colour**\(string) - Colour of the package
+
+**order_details**\(JSON formatted String) - Other details of the package like City, Priority, Cost, Order ID, etc.

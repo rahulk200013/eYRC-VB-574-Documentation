@@ -1,0 +1,54 @@
+.. _rst_tutorial:
+
+msgRosIot.action
+================
+|
+
+
+Description
+-----------
+
+In order for the client and server to communicate, we need to define a few messages on which they communicate. This is with an action specification. This defines the Goal, Feedback, and Result messages with which clients and servers communicate
+
+.. code-block:: c
+
+   # goal
+   string protocol
+   string mode
+   string topic
+   string message
+
+   # result
+   bool flag_success
+
+   # feedback
+   int8 percentage_complete
+
+
+Parameters
+----------
+|
+
+Goal
+^^^^
+
+**protocol**\(string) - IoT protocol to follow
+
+**mode**\(int) - Mode of the operation. Publish or Subscribe.
+
+**topic**\(string) - Topic name
+
+**message**\(string) - Message to push
+
+|
+
+Feedback
+^^^^^^^^
+
+**percentage_complete**\(int8) - Progress of goal
+
+|
+
+Result
+^^^^^^
+**flag_success**\(bool) - True when goal completed otherwise False

@@ -1,0 +1,26 @@
+.. _Camera1Image:
+
+Camera1Image.msg
+================
+
+|
+
+
+Description
+-----------
+
+Message type to share information about the colour of packages present in the image captured by the 2D camera.
+
+Colour of **n**\ :sup:`th` row and **m**\ :sup:`th` column is stored at index value of 3\*n+m. This is done because ROS message doesn't support
+2D arrays for now.
+
+.. code-block:: python
+   
+   # 2D Camera 1 message
+
+   string[] pkg_colour     # List of packages with their colour
+
+Parameters
+----------
+
+**pkg_colour**\(string[]) - 1D list of colour of all the packages

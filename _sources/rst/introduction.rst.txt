@@ -1,0 +1,52 @@
+
+
+Introduction
+============
+
+The arena is an automated warehouse setting where essential packages are required to be sent out to different parts of a city. Since Industry 4.0 heavily focuses on automation, here the warehouse
+consist of two industrial robotic arms which will be used to pick and place the packages. As the requirements are sent to the warehouse, one robotic arm will identifies the packages from a shelf and place them on a conveyor belt and the other robotic arm at the end of the conveyor belt pick these objects from the conveyor and place them into bins. Each bin represents a destination for the package. As the packages are sent out from the warehouse, alerts are sent to the user via email notifying them about the package being shipped from the warehouse.
+
+The packages to be delivered have their own priorities. Packages having a higher priority are intended for a natural disaster or a pandemic situation. Other packages with lower priorities are for general purposes. Similar to a conductor in an orchestra, in this theme, we have designed our own conductor (controller) for the warehouse to make smart decisions in order to deliver high priority packages as quickly as possible.
+
+
+Overview
+--------
+
+* Two UR5 arms are controlled by two nodes namely, node_ur5_1_pick and node_ur5_2_place. These two nodes decides which package to pick and drop. When the UR5#1 node is initialized, first the colour of packages are detected using QR codes on the package by importing a qr module. This module handles the colour detection job. This data is then published to a ROS topic and pushed to the Inventory spreadsheet. 
+
+* To recieve orders, a Ros-IoT bridge was setup which is an Action Server to perform all IoT related tasks. The orders are published on a MQTT topic which is subscribed by this server which then publishes that data to ROS topic so that ROS nodes can access it. ROS nodes can send goals to the action server with the help of action files through an action client.
+
+* When the orders are recieved, they are pushed to the spreadshett and the orders list is sorted according to the priority of orders. Highest priority package is picked first and then placed on the conveyor belt. Details of this order is shared with the UR5#2 node with help of custom message files. At the same time the data is also updated in Inventory Management sheet and an email notification is sent to the customer that their order has been dispatched. 
+
+* UR5#2 node then picks these pakage and drops them in their corresponding bins. Similar to UR5#1 node, the shipped order details are pushed to the spreadsheet and an email notification is sent to the customer that their order has been shipped.
+
+* A dashboard is also implemented to track and analyze the key performance indicators.
+
+Strategies used to save time
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Since shipping packages as soon as possible was the major aim, a lot of time and effort
+were put to find ways to save time. 
+
+#. Most of the time is taken by the trajectories to execute and therefore a system was developed which can save trajecories having the least execution time. 
+
+#. A python script was written which planned 100+ tajectories and saved the one which has the least execution time.
+
+#. To save more time, the trajectories are loaded and stored at the start when the node initializes because loading trajectories aslo take 40-60 ms to load. 
+
+#. In the final run, planning scenes from RViz were also removed as it was observed that it takes less time to execute trajectories without any planning scene.
+
+
+
+
+
+Video Demonstration
+-------------------
+
+.. raw:: html
+
+   <iframe width="690" height="388" src="https://www.youtube.com/embed/pLcViO3jvJs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+|
+
+

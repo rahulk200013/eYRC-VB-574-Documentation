@@ -1,0 +1,15 @@
+
+Python Scripts
+==============
+
+.. toctree::
+   :maxdepth: 1
+
+   scripts/node_ur5_1_pick.rst
+   scripts/node_ur5_2_place.rst
+   scripts/incoming_order_handler.rst
+   scripts/qr/qr_decode.rst
+.. #. :ref:`node_ur5_1_pick` 
+.. #. :ref:`node_ur5_2_place`
+.. #. :ref:`node_incoming_order_handler` 
+.. #. :ref:`node_qr_decode` 

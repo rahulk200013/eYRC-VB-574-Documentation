@@ -1,0 +1,31 @@
+
+
+Software Specifications
+=======================
+
+To avoid any kind of glithces, there are certain specifications required to be met by the user's system. The ideal specifications are listed below :
+
+.. table::
+   :width: 100 %
+
+   ========================= =======================
+        Type                      Requirements     
+   ========================= =======================
+     Processor                    Intel Core i5    
+     RAM                          4GB/8GB             
+     ROS Version                 ROS Melodic          
+     Python Version              2.7               
+     OS                          Ubuntu 18.04      
+   ========================= =======================
+
+* **Ubuntu 18.04** : The only supported operating system on which all the software in this project runs is Ubuntu 18.04.
+                                                                                                                                                                                                      
+* **ROS Melodic** : Robot Operating System (ROS) is a framework which is used to integrate the components into the project. The version of ROS supported in the project is Melodic.
+
+* **Gazebo** : Gazebo offers the ability to accurately and efficiently simulate robots and other complex structures in almost any type of environment. You could practically simulate an entire city within Gazebo too! The official version supported in the project is Gazebo 9.xx. Gazebo 9 is tightly integrated with ROS melodic and so it comes preinstalled when ros-melodic-desktop-full is installed.
+
+* **Google Apps Scripting**: Google Apps Script makes use of cloud based scripting written in JavaScript, CSS or HTML for extending these features of Google Applications. In this project we have used App Scripting to read data and send out alerts via a Google Spreadsheet.
+
+* **HiveMQ** : HiveMQ is a MQTT broker - a messaging platform for fast, efficient and reliable data movement to and from connected IoT devices.
+
+* **GitHub Pages** : GitHub Pages is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository on GitHub, optionally runs the files through a build process, and publishes a website. In this project the dashboard for the Inventory Management System has been hosted on GitHub Pages. Refer to `Dashboard <../rst/implementation.html#dashboard>`_ section in Implementation for further details.

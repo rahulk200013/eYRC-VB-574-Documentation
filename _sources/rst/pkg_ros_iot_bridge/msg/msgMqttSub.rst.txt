@@ -1,0 +1,30 @@
+
+
+msgMqttSub.msg
+==============
+
+|
+
+
+Description
+-----------
+
+Message type to share information about the data published on a MQTT topic.
+
+This data is published to ROS topic "/ros_iot_bridge/mqtt/sub" so that other ROS nodes can aceess it.
+
+.. code-block:: c
+
+   time timestamp
+   string topic
+   string message
+
+
+Parameters
+~~~~~~~~~~
+
+**timestamp**\(time) - Timestamp when data was published
+
+**topic**\(string) - MQTT topic name
+
+**message**\(string) - Message published on MQTT topic

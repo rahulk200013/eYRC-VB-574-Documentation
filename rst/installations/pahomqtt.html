@@ -1,0 +1,517 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>2.4. Paho MQTT Library &mdash; eYRC VB#0574 Task 5 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3. Introduction" href="../introduction.html" />
+    <link rel="prev" title="2.3. Vargi Bots Simulation Packages" href="vbsimpkg.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> eYRC VB#0574 Task 5
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../software_specs.html">1. Software Specifications</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../installations.html">2. Insatllations</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="rosmelodic.html">2.1. ROS Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rosmelodic.html#installation-instruction">2.1.1. Installation Instruction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rosmelodic.html#ros-melodic-installation">2.1.2. ROS Melodic Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rosmelodic.html#installation-steps">2.1.3. Installation Steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rosmelodic.html#configuration-steps">2.1.4. Configuration Steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rosmelodic.html#additional-packages-to-install">2.1.5. Additional packages to install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rosmelodic.html#references">2.1.6. References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="moveit.html">2.2. MoveIt! for ROS Melodic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vbsimpkg.html">2.3. Vargi Bots Simulation Packages</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.4. Paho MQTT Library</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation-instruction">2.4.1. Installation Instruction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-mqtt-pub-sub">2.4.2. Example MQTT Pub-Sub</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sub-py">2.4.2.1. sub.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pub-py">2.4.2.2. pub.py</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#references">2.4.3. References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">3. Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#overview">3.1. Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#strategies-used-to-save-time">3.1.1. Strategies used to save time</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#video-demonstration">3.2. Video Demonstration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../implementation.html">4. Implementation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../implementation.html#setting-up-gazebo-and-planning-scene">4.1. Setting up Gazebo and Planning Scene</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../implementation.html#saving-trajectories">4.2. Saving Trajectories</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../implementation.html#determining-execution-time">4.2.1. Determining Execution Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../implementation.html#automate-trajectory-saving">4.2.2. Automate Trajectory Saving</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../implementation.html#qr-detection">4.3. QR Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../implementation.html#ros-iot-bridge-setup">4.4. Ros-IoT Bridge Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../implementation.html#order-handling">4.5. Order Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../implementation.html#picking-up-packages-from-shelf">4.6. Picking Up Packages From Shelf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../implementation.html#placing-packages-in-the-bin">4.7. Placing Packages in the Bin</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../implementation.html#when-ur5-2-arm-is-free">4.7.1. When UR5#2 arm is free</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../implementation.html#when-ur5-2-arm-is-busy">4.7.2. When UR5#2 arm is busy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../implementation.html#dashboard">4.8. Dashboard</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../implementation.html#map">4.8.1. Map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../implementation.html#table">4.8.2. Table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../implementation.html#bar-graph">4.8.3. Bar Graph</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../implementation.html#rqt-graph">4.9. RQT Graph</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api_documentation.html">5. API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api_documentation.html#package-task-5">5.1. Package Task 5</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pkg_task5/python_scripts.html">5.1.1. Python Scripts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../pkg_task5/scripts/node_ur5_1_pick.html">5.1.1.1. node_ur5_1_pick</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../pkg_task5/scripts/node_ur5_2_place.html">5.1.1.2. node_ur5_2_place</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../pkg_task5/scripts/incoming_order_handler.html">5.1.1.3. incoming_order_handler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../pkg_task5/scripts/qr/qr_decode.html">5.1.1.4. qr/qr_decode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../pkg_task5/msg_files.html">5.1.2. Message Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../pkg_task5/msg/Camera1Image.html">5.1.2.1. Camera1Image.msg</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../pkg_task5/msg/Camera1Image.html#description">5.1.2.1.1. Description</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../pkg_task5/msg/Camera1Image.html#parameters">5.1.2.1.2. Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../pkg_task5/msg/DispatchedPackage.html">5.1.2.2. DispatchedPackage.msg</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../pkg_task5/msg/DispatchedPackage.html#description">5.1.2.2.1. Description</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../pkg_task5/msg/DispatchedPackage.html#parameters">5.1.2.2.2. Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../pkg_task5/msg/NewOrder.html">5.1.2.3. NewOrder.msg</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../pkg_task5/msg/NewOrder.html#description">5.1.2.3.1. Description</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../pkg_task5/msg/NewOrder.html#parameters">5.1.2.3.2. Parameters</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../pkg_task5/launch_files.html">5.1.3. Launch Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../pkg_task5/launch/task5_solution.html">5.1.3.1. task5_solution.launch</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../pkg_task5/launch/task5_solution.html#description">5.1.3.1.1. Description</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../pkg_task5/launch/task5_solution.html#job">5.1.3.1.2. Job</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../pkg_task5/YAML_files.html">5.1.4. YAML Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../pkg_task5/config/saved_trajectories/home1_to_xxx_bin.html">5.1.4.1. home1_to_xxx_bin.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../pkg_task5/config/saved_trajectories/home1_to_xxx_bin.html#description">5.1.4.1.1. Description</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../pkg_task5/config/saved_trajectories/home2_to_xxx_bin.html">5.1.4.2. home2_to_xxx_bin.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../pkg_task5/config/saved_trajectories/home2_to_xxx_bin.html#description">5.1.4.2.1. Description</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../pkg_task5/config/saved_trajectories/home_to_pkgnxx.html">5.1.4.3. home_to_pkgn<em>xx</em>.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../pkg_task5/config/saved_trajectories/home_to_pkgnxx.html#description">5.1.4.3.1. Description</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../pkg_task5/config/saved_trajectories/pkgnxx_to_home.html">5.1.4.4. pkgn<em>xx</em>_to_home.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../pkg_task5/config/saved_trajectories/pkgnxx_to_home.html#description">5.1.4.4.1. Description</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api_documentation.html#package-ros-iot-bridge">5.2. Package Ros-IoT Bridge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pkg_ros_iot_bridge/python_scripts.html">5.2.1. Python Scripts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../pkg_ros_iot_bridge/scripts/node_action_server_ros_iot_bridge.html">5.2.1.1. node_action_server_ros_iot_bridge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../pkg_ros_iot_bridge/scripts/pyiot/iot.html">5.2.1.2. pyiot/iot</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../pkg_ros_iot_bridge/msg_files.html">5.2.2. Message Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../pkg_ros_iot_bridge/msg/msgMqttSub.html">5.2.2.1. msgMqttSub.msg</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../pkg_ros_iot_bridge/msg/msgMqttSub.html#description">5.2.2.1.1. Description</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../pkg_ros_iot_bridge/msg/msgMqttSub.html#parameters">5.2.2.1.1.1. Parameters</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../pkg_ros_iot_bridge/action_files.html">5.2.3. Action Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../pkg_ros_iot_bridge/action/msgRosIot.html">5.2.3.1. msgRosIot.action</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../pkg_ros_iot_bridge/action/msgRosIot.html#description">5.2.3.1.1. Description</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../pkg_ros_iot_bridge/action/msgRosIot.html#parameters">5.2.3.1.2. Parameters</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../pkg_ros_iot_bridge/action/msgRosIot.html#goal">5.2.3.1.2.1. Goal</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../pkg_ros_iot_bridge/action/msgRosIot.html#feedback">5.2.3.1.2.2. Feedback</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../pkg_ros_iot_bridge/action/msgRosIot.html#result">5.2.3.1.2.3. Result</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../pkg_ros_iot_bridge/config_files.html">5.2.4. Config Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../pkg_ros_iot_bridge/config/config_pyiot.html">5.2.4.1. config_pyiot.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../pkg_ros_iot_bridge/config/config_pyiot.html#description">5.2.4.1.1. Description</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../pkg_ros_iot_bridge/config/config_pyiot.html#parameters">5.2.4.1.2. Parameters</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../pkg_ros_iot_bridge/config/config_pyiot.html#mqtt">5.2.4.1.2.1. MQTT</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../pkg_ros_iot_bridge/config/config_pyiot.html#google-apps">5.2.4.1.2.2. Google Apps</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">eYRC VB#0574 Task 5</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../installations.html">2. Insatllations</a> &raquo;</li>
+        
+      <li>2.4. Paho MQTT Library</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="paho-mqtt-library">
+<h1>2.4. Paho MQTT Library<a class="headerlink" href="#paho-mqtt-library" title="Permalink to this headline">¶</a></h1>
+<p>We will be using Paho Python library which basically implements a client class that can be used to add MQTT support to your Python program either by creating instances of the client or through inheriting with your own class. It also provides some helper functions to make publishing one shot messages extremely easy.</p>
+<div class="section" id="installation-instruction">
+<h2>2.4.1. Installation Instruction<a class="headerlink" href="#installation-instruction" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Firstly you have to install paho-mqtt library. For that run the following command in your terminal.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install paho-mqtt
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We need to install paho-mqtt for Python 2.7 and not Python 3.</p>
+</div>
+</li>
+<li><p class="first">Establishing connection with the MQTT broker. In our case broker is HiveMQ broker, let’s how to connect.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">paho.mqtt.client</span> <span class="k">as</span> <span class="nn">mqtt</span>
+
+<span class="n">broker_url</span> <span class="o">=</span> <span class="s2">&quot;broker.mqttdashboard.com&quot;</span>
+<span class="n">broker_port</span> <span class="o">=</span> <span class="mi">1883</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
+<span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">broker_url</span><span class="p">,</span> <span class="n">broker_port</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>In above code snippet we imported the paho library and set the broker address url as broker.mqttdashboard.com and port as 1883. Note that for port 1883 is default MQTT port.</li>
+<li>We created a MQTT client object and assigned it to variable client and using <em>client.connect(broker_url, broker_port)</em> we connect() to the broker, if the connection is successful return will be 0.</li>
+<li>The Client() constructor as well as connect() function as following optional parameters as shown below:</li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mqtt.Client<span class="o">(</span><span class="nv">client_id</span><span class="o">=</span>””, <span class="nv">clean_session</span><span class="o">=</span>True, <span class="nv">userdata</span><span class="o">=</span>None, <span class="nv">protocol</span><span class="o">=</span>paho.MQTTv31<span class="o">)</span>
+</pre></div>
+</div>
+<p>where if <em>client_id</em> is not specified by the user, a random id is generated, <em>clean_session</em> must be True always, userdata parameter can be any value or datatype that you wish and the data will be passed to all callbacks as the userdata variable .</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>client.connect<span class="o">(</span><span class="nv">host</span><span class="o">=</span>”localhost”, <span class="nv">port</span><span class="o">=</span><span class="m">1883</span>, <span class="nv">keepalive</span><span class="o">=</span><span class="m">60</span>, <span class="nv">bind_address</span><span class="o">=</span>””<span class="o">)</span>
+</pre></div>
+</div>
+<p>where except <em>bind_address</em> rest are obvious, the <em>bind_address</em> which allows the socket to be bound to a specific address at the local side of the connection.</p>
+</li>
+<li><p class="first">To check if the message has been successfully published to a topic we need a client subscribed to that topic. For this we will write subscribe() function in the script which as shown below</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>client.subscribe<span class="o">(</span><span class="s2">&quot;HiveMQ/pub&amp;sub&quot;</span>, <span class="nv">qos</span><span class="o">=</span><span class="m">0</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>where topic and qos is same as discussed above.</p>
+<p>Python script to subscribe a topic is given below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">paho.mqtt.client</span> <span class="k">as</span> <span class="nn">mqtt</span>
+
+<span class="n">broker_url</span> <span class="o">=</span> <span class="s2">&quot;broker.mqttdashboard.com&quot;</span>
+<span class="n">broker_port</span> <span class="o">=</span> <span class="mi">1883</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
+<span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">broker_url</span><span class="p">,</span> <span class="n">broker_port</span><span class="p">)</span>
+
+<span class="n">client</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="s2">&quot;HiveMQ/pub&amp;sub&quot;</span><span class="p">,</span> <span class="n">qos</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul>
+<li><p class="first">To check the messages on the terminal we will use callback functions.</p>
+</li>
+<li><p class="first">Callbacks are functions that are executed when an event occurs. In paho these events are connect, disconnect, subscribe, unsubscribe, publish, message received, logging.</p>
+</li>
+<li><p class="first"><strong>Looping functions</strong> : It is function of the same client object. When a message is received by the client it is stored in receive buffer and whenever a message is to be sent from client to broker it is stored in send buffer. Now what the loop function does is they are made to process the messages in the respective buffer and call a callback function. There are 3 loop functions as follows.</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">client.loop_forever()</span></code> which means the loop function will keep running and you cannot execute any other line after you call this function.</li>
+<li><code class="docutils literal notranslate"><span class="pre">client.loop_start()</span></code> which means you can call this function and still continue executing code after the function call.</li>
+<li><code class="docutils literal notranslate"><span class="pre">client.loop_stop()</span></code> which stops the background thread.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>on_connect callback</strong>: It is called everytime when a client establishing a connection with the broker. It takes in 4 parameters those are client which is nothing but our client object, userdata is the custom data declared in the client object which is needed if we want to pass custom data into the callback, flags is a dictionary object, used to check if we have set clean session to True or False for the client object and finally rc is the result code, which checks the connection status.</p>
+</li>
+<li><p class="first"><strong>on_message callback</strong>: This callback function is used to display the messages those are subscribed to a topic.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>It’s alot of theory. Now let’s create a MQTT client by creating two python script namely <code class="docutils literal notranslate"><span class="pre">sub.py</span></code> (Receiving client) and <code class="docutils literal notranslate"><span class="pre">pub.py</span></code> (Publishing client).</p>
+</div>
+<div class="section" id="example-mqtt-pub-sub">
+<h2>2.4.2. Example MQTT Pub-Sub<a class="headerlink" href="#example-mqtt-pub-sub" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sub-py">
+<h3>2.4.2.1. sub.py<a class="headerlink" href="#sub-py" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">paho.mqtt.client</span> <span class="k">as</span> <span class="nn">mqtt</span>
+
+<span class="n">broker_url</span> <span class="o">=</span> <span class="s2">&quot;broker.mqttdashboard.com&quot;</span>
+<span class="n">broker_port</span> <span class="o">=</span> <span class="mi">1883</span>
+
+<span class="k">def</span> <span class="nf">on_connect</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">userdata</span><span class="p">,</span> <span class="n">flags</span><span class="p">,</span> <span class="n">rc</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[INFO] Connected With Result Code: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">rc</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">on_message</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">userdata</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- Subscriber ---&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[INFO] Topic: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">topic</span><span class="p">)</span> <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[INFO] Message Recieved: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">payload</span><span class="o">.</span><span class="n">decode</span><span class="p">()))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------&quot;</span><span class="p">)</span>
+
+<span class="n">sub_client</span> <span class="o">=</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
+<span class="n">sub_client</span><span class="o">.</span><span class="n">on_connect</span> <span class="o">=</span> <span class="n">on_connect</span>
+<span class="n">sub_client</span><span class="o">.</span><span class="n">on_message</span> <span class="o">=</span> <span class="n">on_message</span>
+<span class="n">sub_client</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">broker_url</span><span class="p">,</span> <span class="n">broker_port</span><span class="p">)</span>
+
+<span class="n">sub_client</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="s2">&quot;/eyrc/vb/time&quot;</span><span class="p">,</span> <span class="n">qos</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">sub_client</span><span class="o">.</span><span class="n">loop_forever</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Out of Loop. Exiting..&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pub-py">
+<h3>2.4.2.2. pub.py<a class="headerlink" href="#pub-py" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">paho.mqtt.client</span> <span class="k">as</span> <span class="nn">mqtt</span>
+
+<span class="n">broker_url</span> <span class="o">=</span> <span class="s2">&quot;broker.mqttdashboard.com&quot;</span>
+<span class="n">broker_port</span> <span class="o">=</span> <span class="mi">1883</span>
+
+<span class="k">def</span> <span class="nf">on_connect</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">userdata</span><span class="p">,</span> <span class="n">flags</span><span class="p">,</span> <span class="n">rc</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[INFO] Connected With Result Code: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">rc</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">on_message</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">userdata</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- Subscriber ---&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[INFO] Topic: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">topic</span><span class="p">)</span> <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[INFO] Message Recieved: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">payload</span><span class="o">.</span><span class="n">decode</span><span class="p">()))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------&quot;</span><span class="p">)</span>
+
+<span class="n">sub_client</span> <span class="o">=</span> <span class="n">mqtt</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
+<span class="n">sub_client</span><span class="o">.</span><span class="n">on_connect</span> <span class="o">=</span> <span class="n">on_connect</span>
+<span class="n">sub_client</span><span class="o">.</span><span class="n">on_message</span> <span class="o">=</span> <span class="n">on_message</span>
+<span class="n">sub_client</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">broker_url</span><span class="p">,</span> <span class="n">broker_port</span><span class="p">)</span>
+
+<span class="n">sub_client</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="s2">&quot;/eyrc/vb/time&quot;</span><span class="p">,</span> <span class="n">qos</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">sub_client</span><span class="o">.</span><span class="n">loop_forever</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Out of Loop. Exiting..&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For proper output open two windows of terminal. In first, window run <code class="docutils literal notranslate"><span class="pre">sub.py</span></code> and in second window run <code class="docutils literal notranslate"><span class="pre">pub.py</span></code>. The output should look like this.</p>
+<img alt="../../_images/pub-sub.png" src="../../_images/pub-sub.png" />
+</div>
+</div>
+<div class="section" id="references">
+<h2>2.4.3. References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://www.hivemq.com/hivemq/">HiveMQ</a></li>
+<li><a class="reference external" href="https://www.hivemq.com/blog/mqtt-client-library-paho-python/">HiveMQ with paho</a></li>
+<li><a class="reference external" href="https://mntolia.com/mqtt-python-with-paho-mqtt-client/">Python with paho</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../introduction.html" class="btn btn-neutral float-right" title="3. Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="vbsimpkg.html" class="btn btn-neutral float-left" title="2.3. Vargi Bots Simulation Packages" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Rahul, Team Leader VB#0574.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

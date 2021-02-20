@@ -1,0 +1,15 @@
+
+
+Insatllations
+=============
+
+The following things needs to be installed first to run the simulation.
+
+.. toctree:: 
+   :maxdepth: 1
+
+   installations/rosmelodic.rst
+   installations/moveit.rst
+   installations/vbsimpkg.rst
+   installations/pahomqtt.rst
+

@@ -1,0 +1,168 @@
+/* Sidebar header (and topbar for mobile) */
+.wy-side-nav-search, .wy-nav-top, .wy-side-scroll {
+  background: #38474F;
+}
+ /* Sidebar */
+.wy-nav-shift {
+	background: #38474F;
+}
+
+nav.wy-nav-side {
+	min-height: 985px;
+}
+
+div.wy-nav-content {
+	min-height: 953px;	
+}
+
+.simple {
+	color: white;
+}
+
+.wy-nav-content {
+	background: #263238;
+	height: 100%;
+}
+
+p, h1, h2, h3 {
+	color: #e3e3e3;
+}
+
+.toctree-l1 a.reference.internal:hover, a.reference.external:hover, span.std.std-ref:hover {
+	color: #fff;
+	font-weight: bold;
+}
+
+li.toctree-l1.current a.reference.internal:hover{
+	color: #404040;
+	font-weight: bold;
+}
+
+li.toctree-l2 a.reference.internal:hover {
+	color: #404040;
+	font-weight: normal;
+}
+
+span.toctree-expand::before {
+	color: #fff;
+}
+
+li.toctree-l1.current span.toctree-expand::before {
+	color: #404040;
+}
+
+p a.reference.external {
+	color: #2AADC1;
+}
+
+p a.reference.external:hover {
+	color: #2AADC1;
+	font-weight: bold;
+}
+
+p.last {
+	color: #263238;
+}
+
+p.first.last {
+	color: #e3e3e3;
+}
+
+code.docutils.literal.notranslate {
+	background-color: #e3e3e3;
+}
+
+th.field-name {
+	color: #e3e3e3;
+}
+
+td.field-body {
+	color: #e3e3e3;
+}
+
+html.writer-html4 .rst-content dl:not(.docutils)>dt, html.writer-html5 .rst-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple)>dt {
+	background: #e3e3e3;
+	border-top: 6px solid #2AADC1;
+}
+
+html.writer-html4 .rst-content dl:not(.docutils) dl:not(.field-list)>dt, html.writer-html5 .rst-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple) dl:not(.field-list)>dt {
+	background: #e3e3e3;
+}
+
+html.writer-html4 .rst-content dl:not(.docutils) dl:not(.field-list)>dt, html.writer-html5 .rst-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple) dl:not(.field-list)>dt {
+	border-left: 6px solid #2AADC1;
+}
+
+td.field-body em {
+	color: #2AADC1;
+}
+
+li.toctree-l2 span.toctree-expand::before {
+	color: #404040;
+}
+
+.current {
+	color: red;
+}
+
+ul.li.toctree-l1:hover {
+	background: #263238;
+}
+
+a.reference, a.reference:visited {
+	color: #e3e3e3;
+}
+
+.highlight {
+	background: #e3e3e3;
+}
+
+ul.wy-breadcrumbs {
+	color: white;
+}
+
+.wy-breadcrumbs a{
+	color: #2AADC1;
+}
+
+.wy-breadcrumbs a:hover{
+	font-weight: bold;
+}
+
+tr.row-odd{
+	color: #e3e3e3;
+}
+
+.rst-content table.docutils, .wy-table-bordered-all {
+	border: 1px solid #e3e3e3;
+}
+
+tr.row-even td:nth-child(even) {
+	border-left: 1px solid #263238;
+}
+
+tr.row-odd th.head {
+	font-weight: bold;
+	font-size: 18px;
+}
+
+footer a:visited, footer a {
+	color: #2AADC1;
+}
+
+footer a:hover {
+	font-weight: bold;
+}
+
+
+/*body {
+	color: white;
+}*/
+
+.linenodiv pre{
+	color: #e3e3e3;
+}
+
+.wy-nav-content-wrap {
+	background-color: #38474F;
+}

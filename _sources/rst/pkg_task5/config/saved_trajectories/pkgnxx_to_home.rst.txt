@@ -1,0 +1,14 @@
+.. _pkgnxx_to_home:
+
+pkgn\ *xx*\ _to_home.yaml
+=========================
+|
+
+
+Description
+-----------
+
+Saved trajectory to go to home after attaching package\ **xx** to the vacuum gripper of UR5_1 arm. 
+
+Where **xx** can be 00, 01, 02, ans so on.
+

@@ -1,0 +1,4 @@
+MoveIt! for ROS Melodic
+=======================
+
+You can refer to this guide `here <http://docs.ros.org/en/melodic/api/moveit_tutorials/html/doc/getting_started/getting_started.html>`_ to install MoveIt!

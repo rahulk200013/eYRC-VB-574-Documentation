@@ -1,0 +1,700 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>4. Implementation &mdash; eYRC VB#0574 Task 5 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5. API Documentation" href="api_documentation.html" />
+    <link rel="prev" title="3. Introduction" href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> eYRC VB#0574 Task 5
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="software_specs.html">1. Software Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installations.html">2. Insatllations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installations/rosmelodic.html">2.1. ROS Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installations/rosmelodic.html#installation-instruction">2.1.1. Installation Instruction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installations/rosmelodic.html#ros-melodic-installation">2.1.2. ROS Melodic Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installations/rosmelodic.html#installation-steps">2.1.3. Installation Steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installations/rosmelodic.html#configuration-steps">2.1.4. Configuration Steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installations/rosmelodic.html#additional-packages-to-install">2.1.5. Additional packages to install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installations/rosmelodic.html#references">2.1.6. References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installations/moveit.html">2.2. MoveIt! for ROS Melodic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installations/vbsimpkg.html">2.3. Vargi Bots Simulation Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installations/pahomqtt.html">2.4. Paho MQTT Library</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installations/pahomqtt.html#installation-instruction">2.4.1. Installation Instruction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installations/pahomqtt.html#example-mqtt-pub-sub">2.4.2. Example MQTT Pub-Sub</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="installations/pahomqtt.html#sub-py">2.4.2.1. sub.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="installations/pahomqtt.html#pub-py">2.4.2.2. pub.py</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="installations/pahomqtt.html#references">2.4.3. References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">3. Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#overview">3.1. Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#strategies-used-to-save-time">3.1.1. Strategies used to save time</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#video-demonstration">3.2. Video Demonstration</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Implementation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-gazebo-and-planning-scene">4.1. Setting up Gazebo and Planning Scene</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#saving-trajectories">4.2. Saving Trajectories</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#determining-execution-time">4.2.1. Determining Execution Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#automate-trajectory-saving">4.2.2. Automate Trajectory Saving</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#qr-detection">4.3. QR Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ros-iot-bridge-setup">4.4. Ros-IoT Bridge Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#order-handling">4.5. Order Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#picking-up-packages-from-shelf">4.6. Picking Up Packages From Shelf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#placing-packages-in-the-bin">4.7. Placing Packages in the Bin</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#when-ur5-2-arm-is-free">4.7.1. When UR5#2 arm is free</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#when-ur5-2-arm-is-busy">4.7.2. When UR5#2 arm is busy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dashboard">4.8. Dashboard</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#map">4.8.1. Map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#table">4.8.2. Table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bar-graph">4.8.3. Bar Graph</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rqt-graph">4.9. RQT Graph</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_documentation.html">5. API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_documentation.html#package-task-5">5.1. Package Task 5</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pkg_task5/python_scripts.html">5.1.1. Python Scripts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pkg_task5/scripts/node_ur5_1_pick.html">5.1.1.1. node_ur5_1_pick</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pkg_task5/scripts/node_ur5_2_place.html">5.1.1.2. node_ur5_2_place</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pkg_task5/scripts/incoming_order_handler.html">5.1.1.3. incoming_order_handler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pkg_task5/scripts/qr/qr_decode.html">5.1.1.4. qr/qr_decode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pkg_task5/msg_files.html">5.1.2. Message Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pkg_task5/msg/Camera1Image.html">5.1.2.1. Camera1Image.msg</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="pkg_task5/msg/Camera1Image.html#description">5.1.2.1.1. Description</a></li>
+<li class="toctree-l5"><a class="reference internal" href="pkg_task5/msg/Camera1Image.html#parameters">5.1.2.1.2. Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="pkg_task5/msg/DispatchedPackage.html">5.1.2.2. DispatchedPackage.msg</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="pkg_task5/msg/DispatchedPackage.html#description">5.1.2.2.1. Description</a></li>
+<li class="toctree-l5"><a class="reference internal" href="pkg_task5/msg/DispatchedPackage.html#parameters">5.1.2.2.2. Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="pkg_task5/msg/NewOrder.html">5.1.2.3. NewOrder.msg</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="pkg_task5/msg/NewOrder.html#description">5.1.2.3.1. Description</a></li>
+<li class="toctree-l5"><a class="reference internal" href="pkg_task5/msg/NewOrder.html#parameters">5.1.2.3.2. Parameters</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pkg_task5/launch_files.html">5.1.3. Launch Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pkg_task5/launch/task5_solution.html">5.1.3.1. task5_solution.launch</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="pkg_task5/launch/task5_solution.html#description">5.1.3.1.1. Description</a></li>
+<li class="toctree-l5"><a class="reference internal" href="pkg_task5/launch/task5_solution.html#job">5.1.3.1.2. Job</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pkg_task5/YAML_files.html">5.1.4. YAML Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pkg_task5/config/saved_trajectories/home1_to_xxx_bin.html">5.1.4.1. home1_to_xxx_bin.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="pkg_task5/config/saved_trajectories/home1_to_xxx_bin.html#description">5.1.4.1.1. Description</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="pkg_task5/config/saved_trajectories/home2_to_xxx_bin.html">5.1.4.2. home2_to_xxx_bin.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="pkg_task5/config/saved_trajectories/home2_to_xxx_bin.html#description">5.1.4.2.1. Description</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="pkg_task5/config/saved_trajectories/home_to_pkgnxx.html">5.1.4.3. home_to_pkgn<em>xx</em>.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="pkg_task5/config/saved_trajectories/home_to_pkgnxx.html#description">5.1.4.3.1. Description</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="pkg_task5/config/saved_trajectories/pkgnxx_to_home.html">5.1.4.4. pkgn<em>xx</em>_to_home.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="pkg_task5/config/saved_trajectories/pkgnxx_to_home.html#description">5.1.4.4.1. Description</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_documentation.html#package-ros-iot-bridge">5.2. Package Ros-IoT Bridge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pkg_ros_iot_bridge/python_scripts.html">5.2.1. Python Scripts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pkg_ros_iot_bridge/scripts/node_action_server_ros_iot_bridge.html">5.2.1.1. node_action_server_ros_iot_bridge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pkg_ros_iot_bridge/scripts/pyiot/iot.html">5.2.1.2. pyiot/iot</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pkg_ros_iot_bridge/msg_files.html">5.2.2. Message Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pkg_ros_iot_bridge/msg/msgMqttSub.html">5.2.2.1. msgMqttSub.msg</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="pkg_ros_iot_bridge/msg/msgMqttSub.html#description">5.2.2.1.1. Description</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="pkg_ros_iot_bridge/msg/msgMqttSub.html#parameters">5.2.2.1.1.1. Parameters</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pkg_ros_iot_bridge/action_files.html">5.2.3. Action Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pkg_ros_iot_bridge/action/msgRosIot.html">5.2.3.1. msgRosIot.action</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="pkg_ros_iot_bridge/action/msgRosIot.html#description">5.2.3.1.1. Description</a></li>
+<li class="toctree-l5"><a class="reference internal" href="pkg_ros_iot_bridge/action/msgRosIot.html#parameters">5.2.3.1.2. Parameters</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="pkg_ros_iot_bridge/action/msgRosIot.html#goal">5.2.3.1.2.1. Goal</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pkg_ros_iot_bridge/action/msgRosIot.html#feedback">5.2.3.1.2.2. Feedback</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pkg_ros_iot_bridge/action/msgRosIot.html#result">5.2.3.1.2.3. Result</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pkg_ros_iot_bridge/config_files.html">5.2.4. Config Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pkg_ros_iot_bridge/config/config_pyiot.html">5.2.4.1. config_pyiot.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="pkg_ros_iot_bridge/config/config_pyiot.html#description">5.2.4.1.1. Description</a></li>
+<li class="toctree-l5"><a class="reference internal" href="pkg_ros_iot_bridge/config/config_pyiot.html#parameters">5.2.4.1.2. Parameters</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="pkg_ros_iot_bridge/config/config_pyiot.html#mqtt">5.2.4.1.2.1. MQTT</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pkg_ros_iot_bridge/config/config_pyiot.html#google-apps">5.2.4.1.2.2. Google Apps</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">eYRC VB#0574 Task 5</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>4. Implementation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="implementation">
+<h1>4. Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="section" id="setting-up-gazebo-and-planning-scene">
+<h2>4.1. Setting up Gazebo and Planning Scene<a class="headerlink" href="#setting-up-gazebo-and-planning-scene" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-XML notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Add Models PATH for Gazebo --&gt;</span>
+<span class="nt">&lt;env</span> <span class="na">name=</span><span class="s">&quot;GAZEBO_MODEL_PATH&quot;</span> <span class="na">value=</span><span class="s">&quot;$(find pkg_vb_sim)/models&quot;</span><span class="nt">/&gt;</span>
+
+<span class="c">&lt;!-- Arguments --&gt;</span>
+<span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;paused&quot;</span> <span class="na">default=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;use_sim_time&quot;</span> <span class="na">default=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;gui&quot;</span> <span class="na">default=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;rviz&quot;</span> <span class="na">default =</span> <span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;headless&quot;</span> <span class="na">default=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;debug&quot;</span> <span class="na">default=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;extra_gazebo_args&quot;</span> <span class="na">default=</span><span class="s">&quot;--verbose&quot;</span><span class="nt">/&gt;</span>
+
+<span class="c">&lt;!-- Spawn Task-5 Models in Gazebo --&gt;</span>
+<span class="nt">&lt;include</span> <span class="na">file=</span><span class="s">&quot;$(find pkg_vb_sim)/launch/task5_world.launch&quot;</span> <span class="nt">/&gt;</span>
+
+<span class="c">&lt;!-- Spawn two UR5 in Gazebo --&gt;</span>
+<span class="nt">&lt;include</span> <span class="na">file =</span> <span class="s">&quot;$(find pkg_vb_sim)/launch/two_ur5_gazebo.launch&quot;</span> <span class="nt">/&gt;</span>
+
+<span class="c">&lt;!-- Spawn Task 5 Boxes --&gt;</span>
+<span class="nt">&lt;rosparam</span> <span class="na">file =</span><span class="s">&quot;$(find pkg_vb_sim)/config/config_package_colour.yaml&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;node</span> <span class="na">name=</span> <span class="s">&quot;task5_spawn_models&quot;</span> <span class="na">pkg=</span> <span class="s">&quot;pkg_vb_sim&quot;</span> <span class="na">type=</span><span class="s">&quot;task5_spawn_models.py&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>This is a snippet of task5_solution.launch, and from there first, the gazebo world is launched
+where the environment of the gazebo is loaded which includes the warehouse, shelf, lights, etc.</p>
+<p>Then the two UR5 move groups are launched which loads the two UR5 arms UR5#1 and UR5#2 at the right locations.
+This also launches the RViz for both of the arms to control them. RViz and Gazebo are interfaced together using MoveIt! plugin.</p>
+<p>And at last, the packages are spawned on the shelf at their right locations. This is what the Gazebo environment should look like:</p>
+<img alt="../_images/t5_sim_env.png" src="../_images/t5_sim_env.png" />
+<p>This also launches two RViz windows, one for both of the arms.</p>
+<img alt="../_images/rviz_windows.png" src="../_images/rviz_windows.png" />
+</div>
+<div class="section" id="saving-trajectories">
+<h2>4.2. Saving Trajectories<a class="headerlink" href="#saving-trajectories" title="Permalink to this headline">¶</a></h2>
+<p>Next, we need to save trajectories to pick and place the packages.
+But before we do that we need to import collision meshes of the shelf, packages, bins, camera, and conveyor belt in the RViz planning scene.
+These meshes were imported in RViz from pkg_vb_sim. MoveIt! will now consider these collision meshes while planning the trajectories and this way we can ensure that the arm do not collide with anything in the Gazebo environment. This is what the RViz looks like after making the planning scene:</p>
+<img alt="../_images/rviz_planning_scene.png" src="../_images/rviz_planning_scene.png" />
+<p>Saving efficient trajectories is a very important aspect of this project. They should be able to be executed as fast as possible.
+It doesn’t matter whether which path the arm takes as long as it is not colliding with something in the environment. A lot of effort was put to
+save the best trajectories possible.</p>
+<p>Since the solution should be dynamic, that is the arm should be able to pick packages from the shelf in any possible order. For that, we need to have a common starting and ending position of the arm. This is called a <strong>home position</strong>. For UR5#1, this is the home position:</p>
+<img alt="../_images/ur5_1_home.png" src="../_images/ur5_1_home.png" />
+<p>Similarly, there are two home positions for UR5#2. We will get into the details later.</p>
+<p><strong>Home Position #1</strong></p>
+<img alt="../_images/ur5_2_home1.png" src="../_images/ur5_2_home1.png" />
+<p><strong>Home Position #2</strong></p>
+<img alt="../_images/ur5_2_home2.png" src="../_images/ur5_2_home2.png" />
+<p>The joint angles of the home positions can be noted from the joint tab in RViz.</p>
+<div class="section" id="determining-execution-time">
+<h3>4.2.1. Determining Execution Time<a class="headerlink" href="#determining-execution-time" title="Permalink to this headline">¶</a></h3>
+<p>To save good trajectories, we obviously need to know the time it will take for the trajectory to execute. We can’t just see and tell which
+is the fastest trajectory. This information is stored in the trajectory planned. In MoveIt!, the planned trajectories are of type
+<a class="reference external" href="http://docs.ros.org/en/melodic/api/trajectory_msgs/html/msg/JointTrajectory.html">JointTrakectory.msg</a> . We can access the execution time like this:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">no_of_joint_points</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">computed_plan</span><span class="o">.</span><span class="n">joint_trajectory</span><span class="o">.</span><span class="n">points</span><span class="p">)</span>
+<span class="n">execution_time</span> <span class="o">=</span> <span class="n">computed_plan</span><span class="o">.</span><span class="n">joint_trajectory</span><span class="o">.</span><span class="n">points</span><span class="p">[</span><span class="n">no_of_joint_points</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">time_from_start</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Execution Time: &quot;</span><span class="p">,</span> <span class="n">planned_time</span><span class="o">.</span><span class="n">secs</span> <span class="o">+</span> <span class="n">planned_time</span><span class="o">.</span><span class="n">nsecs</span> <span class="o">/</span> <span class="mf">1000000000.0</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="automate-trajectory-saving">
+<h3>4.2.2. Automate Trajectory Saving<a class="headerlink" href="#automate-trajectory-saving" title="Permalink to this headline">¶</a></h3>
+<p>Saving trajectories is a very tedious and time taking process. Since we already have quantifiable measures to
+determine the best trajectory, we can write a python script to do the same. In the following python script, what we have done is to
+first plan 150 trajectories and then save the trajectory which has the least execution time. This is done again and again for each of the packages.
+The code is pretty self-explanatory.</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">150</span><span class="p">:</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">ur5_1</span><span class="o">.</span><span class="n">hard_set_joint_angles</span><span class="p">(</span><span class="n">pkg_joint_angles</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="n">no_of_joint_points</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ur5_1</span><span class="o">.</span><span class="n">_computed_plan</span><span class="o">.</span><span class="n">joint_trajectory</span><span class="o">.</span><span class="n">points</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">no_of_joint_points</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">ur5_1</span><span class="o">.</span><span class="n">_computed_plan</span><span class="o">.</span><span class="n">joint_trajectory</span><span class="o">.</span><span class="n">points</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">positions</span> <span class="o">!=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">):</span>
+            <span class="n">planned_time</span> <span class="o">=</span> <span class="n">ur5_1</span><span class="o">.</span><span class="n">_computed_plan</span><span class="o">.</span><span class="n">joint_trajectory</span><span class="o">.</span><span class="n">points</span><span class="p">[</span><span class="n">no_of_joint_points</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">time_from_start</span>
+            <span class="n">planned_trajectory</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ur5_1</span><span class="o">.</span><span class="n">_computed_plan</span><span class="p">)</span>
+            <span class="n">execution_time_list</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">planned_time</span><span class="o">.</span><span class="n">secs</span> <span class="o">+</span> <span class="p">(</span><span class="n">planned_time</span><span class="o">.</span><span class="n">nsecs</span> <span class="o">/</span> <span class="mf">1000000000.0</span><span class="p">),</span> <span class="n">index</span><span class="p">])</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Execution time: &quot;</span><span class="p">,</span> <span class="n">planned_time</span><span class="o">.</span><span class="n">secs</span> <span class="o">+</span> <span class="p">(</span><span class="n">planned_time</span><span class="o">.</span><span class="n">nsecs</span> <span class="o">/</span> <span class="mf">1000000000.0</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Wrong Trajecctory. Starting from zero&quot;</span><span class="p">)</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="n">index</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;iteration Failed!!&quot;</span><span class="p">)</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">index</span> <span class="o">-</span> <span class="mi">1</span>
+
+<span class="c1"># Sort the list</span>
+<span class="n">execution_time_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">execution_time_list</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;home_to_pkgn&#39;</span> <span class="o">+</span> <span class="n">pkg</span> <span class="o">+</span> <span class="s1">&#39;.yaml&#39;</span>
+<span class="n">file_path</span> <span class="o">=</span> <span class="n">file_path</span> <span class="o">+</span> <span class="n">file_name</span>
+
+<span class="c1"># Dump the best trajectory</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_save</span><span class="p">:</span>
+    <span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">planned_trajectory</span><span class="p">[</span><span class="n">execution_time_list</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]],</span> <span class="n">file_save</span><span class="p">,</span> <span class="n">default_flow_style</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="qr-detection">
+<h2>4.3. QR Detection<a class="headerlink" href="#qr-detection" title="Permalink to this headline">¶</a></h2>
+<p>The next step is to determine the colors of the packages which have QR codes on them denoting their colors on the shelf. There is a 2D camera placed in front of the shelf. With the help of
+this camera we can determine the color of the packages in the following ways:</p>
+<ol class="arabic simple">
+<li>QR Detection</li>
+<li>Colour Detection</li>
+</ol>
+<p>For now, we will talk about only QR Decoding as it seems to be a more reliable approach.</p>
+<p>This is what the feed from the 2D camera(<em>left</em>) looks like:</p>
+<img alt="../_images/camera_feed.png" src="../_images/camera_feed.png" />
+<p>To decode QR codes, we now crop this image and make 12 different images of each package as you can see on the right in the above image.
+This is done using the <a class="reference external" href="https://pypi.org/project/opencv-python/">OpenCV</a> library for python. Then QR code is decoded from each image and stored in a list which is then published to a ROS topic
+<em>‘eyrc/package/colours’</em> which can be accessed by any other ROS node. The format in which this data is described in <a class="reference external" href="./pkg_task5/msg/Camera1Image.html">Camera1Image.msg</a>
+This data is used to find the order on the shelf and to update the Inventory Sheet.</p>
+<p>This is an example of how you can achieve this</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Image feed from the 2D Camera</span>
+<span class="n">cv_image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bridge</span><span class="o">.</span><span class="n">imgmsg_to_cv2</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;bgr8&quot;</span><span class="p">)</span>
+
+<span class="c1"># Iterate through each row and column of shelf</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="c1"># Start and final horizontal coordinates of the respective package</span>
+        <span class="n">x_start</span> <span class="o">=</span> <span class="mi">280</span> <span class="o">+</span> <span class="n">row</span> <span class="o">*</span> <span class="mi">165</span>
+        <span class="n">x_final</span> <span class="o">=</span> <span class="n">x_start</span> <span class="o">+</span> <span class="mi">165</span>
+
+        <span class="c1"># Start and final vertical coordinates of the respective package</span>
+        <span class="n">y_start</span> <span class="o">=</span> <span class="mi">80</span> <span class="o">+</span> <span class="n">column</span> <span class="o">*</span> <span class="mi">190</span>
+        <span class="n">y_final</span> <span class="o">=</span> <span class="n">y_start</span> <span class="o">+</span> <span class="mi">190</span>
+
+        <span class="c1"># Image of the respective row and column</span>
+        <span class="n">cropped_image</span> <span class="o">=</span> <span class="n">cv_image</span><span class="p">[</span><span class="n">x_start</span><span class="p">:</span><span class="n">x_final</span><span class="p">,</span> <span class="n">y_start</span><span class="p">:</span><span class="n">y_final</span><span class="p">]</span>
+
+        <span class="c1"># Store the decode colour of the package in a list</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pkg_colour_list</span><span class="p">[</span><span class="mi">3</span> <span class="o">*</span> <span class="n">row</span> <span class="o">+</span> <span class="n">column</span><span class="p">]</span> <span class="o">=</span> <span class="n">decode_qr</span><span class="p">(</span><span class="n">cropped_image</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="ros-iot-bridge-setup">
+<h2>4.4. Ros-IoT Bridge Setup<a class="headerlink" href="#ros-iot-bridge-setup" title="Permalink to this headline">¶</a></h2>
+<p>This section explains how communication happens between the ROS nodes and the Internet. This bridge is a very
+crucial part of the project. This allows us to receive orders placed on the MQTT topic and to update the
+Inventory spreadsheet which includes Inventory, Incoming Orders, Dispatched Orders, and Shipped Orders sheet.</p>
+<p>This is a ROS node called <a class="reference external" href="./pkg_ros_iot_bridge/scripts/node_action_server_ros_iot_bridge.html">node_action_server_ros_iot_bridge</a> which initializes an Action Server to perform all the IoT related tasks. You can refer to the API documentation of this node for details by clicking on the name of the node.</p>
+<p>This node can communicate using two IoT protocols:</p>
+<ol class="arabic simple">
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol">HTML</a></li>
+<li><a class="reference external" href="https://mqtt.org/">MQTT</a></li>
+</ol>
+<p>HTML protocol is used to push data to the spreadsheets whereas MQTT protocol is used to receive orders.</p>
+<p>First the <a class="reference external" href="./pkg_ros_iot_bridge/config/config_pyiot.html">configuration file</a> of the action server is loaded on the parameter server which tells the node about the MQTT topic to receive the orders from,
+spreadsheet ID’s, and ROS topic on which to publish the data published on the MQTT topic</p>
+<p>This node imports this <a class="reference external" href="./pkg_ros_iot_bridge/scripts/pyiot/iot.html">iot</a> module to perform the IoT-related tasks. Whenever a goal is sent to the action server, it creates
+a new thread and handover the task to the IoT module instance to complete that. This way it is capable to handle multiple action client
+goals simultaneously.</p>
+<p>The communication between action server and action clients is done using action file <a class="reference external" href="./pkg_ros_iot_bridge/action/msgRosIot.html">msgRosIot</a></p>
+<p>All the orders received on the MQTT topic is also published on a ROS topic called <em>‘/ros_iot_bridge/mqtt/sub’</em>.</p>
+</div>
+<div class="section" id="order-handling">
+<h2>4.5. Order Handling<a class="headerlink" href="#order-handling" title="Permalink to this headline">¶</a></h2>
+<p>This job is handled by <a class="reference external" href="./pkg_task5/scripts/incoming_order_handler.html">incoming_order_handler</a> node. This node first subscribes to the ROS
+topic <em>‘/ros_iot_bridge/mqtt/sub’</em> where all the orders are published by Ros-IoT bridge which was received by it on the MQTT topic. Order is in JSON
+formatted string and therefore first needs to be converted to a dictionary which is done using the JSON library for python. Some additional details are added to
+this dictionary like Cost and Priority and then this dictionary is pushed to the Incoming Orders spreadsheet by sending a goal to do the same to the Ros-Iot bridge
+action server through an action client.</p>
+<p>The same data is also published on a ROS topic <em>‘eyrc/vb/orders’</em> in the format described in <a class="reference external" href="./pkg_task5/msg/NewOrder.html">NewOrder.msg</a>. Other ROS nodes will
+subscribe to this topic to receive the details of the new order placed.</p>
+</div>
+<div class="section" id="picking-up-packages-from-shelf">
+<h2>4.6. Picking Up Packages From Shelf<a class="headerlink" href="#picking-up-packages-from-shelf" title="Permalink to this headline">¶</a></h2>
+<p>This job is handled by <a class="reference external" href="./pkg_task5/scripts/node_ur5_1_pick.html">node_ur5_1_pick</a>. This node subscribes to the ROS topic <em>‘eyrc/vb/orders’</em> where all the details of new orders are published. The order details are converted to dictionary from JSON formatted string first and then this dictionary is appended to a local list called
+<em>orders_list[]</em>.</p>
+<p>Initially, the UR5#1 arm is waiting at its home position. Now whenever a new order is placed, the details are appended to <em>orders_list[]</em>.
+This list is then sorted according to the priorities of order. Since the higher priority orders have the highest cost and the lowest priority package has the lowest cost, this
+information is used to sort the list. This way the higher priority orders are at the top of the list and lower priority orders at the last.</p>
+<p>Now when UR5#1 arm will process the order which is at the top of this list or we can say the order at index value 0. Then a package of the same priority is searched
+in the shelf in the following order:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Search order of packages while selecting the package to pick up</span>
+<span class="n">pkg_search_order</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">02</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">01</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">00</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>This is done to make the arm pick those packages first which takes the least time to pick and place. This order can be determined from the execution time of trajectories
+we saved before. This way we can process the orders as fast as possible.</p>
+<p>After the package has been placed on the conveyor belt, the same process is repeated to process the remaining orders. One thing which needs to be mentioned is that
+pick and place operation of UR5#1 arm and order handling is done asynchronously.</p>
+<p>After placing the package on the conveyor belt, the details of the order are published on a ROS topic called <em>eyrc/vb/dispatched_pkg</em> in a format described in
+<a class="reference external" href="./pkg_task5/msg/DispatchedPackage.html">DispacthedPkg.msg</a>. This is done so that UR5#2 arm knows the details of the package coming towards it and be
+ready at the right location to pick it up. The details of the dispatched order are also pushed to the Dispatched Orders sheet. Using google’s app script, an email
+notification is also sent to the customer that their order has been dispatched.</p>
+</div>
+<div class="section" id="placing-packages-in-the-bin">
+<h2>4.7. Placing Packages in the Bin<a class="headerlink" href="#placing-packages-in-the-bin" title="Permalink to this headline">¶</a></h2>
+<p>This job is handled by <a class="reference external" href="./pkg_task5/scripts/node_ur5_2_place.html">node_ur5_2_place</a>.</p>
+<p>When the details of the dispatched order are received the robot can be in two states:</p>
+<ol class="arabic simple">
+<li>The UR5#2 arm is free.</li>
+<li>The UR5#2 arm is currently in the process of dropping a package in the bin.</li>
+</ol>
+<p>Let’s discuss what we will do in these situations one by one:</p>
+<div class="section" id="when-ur5-2-arm-is-free">
+<h3>4.7.1. When UR5#2 arm is free<a class="headerlink" href="#when-ur5-2-arm-is-free" title="Permalink to this headline">¶</a></h3>
+<p>In this case, we will move the UR5#2 arm to home position #1. The arm will now wait for the package to come to this location to pick it up.</p>
+</div>
+<div class="section" id="when-ur5-2-arm-is-busy">
+<h3>4.7.2. When UR5#2 arm is busy<a class="headerlink" href="#when-ur5-2-arm-is-busy" title="Permalink to this headline">¶</a></h3>
+<p>Now in this case there are again two possibilities.</p>
+<ol class="arabic simple">
+<li>The arm can reach home position #1 before the new package arrives there after dropping the current package.</li>
+<li>The arm can not reach home position #1 before the new package arrives there after dropping the current package.</li>
+</ol>
+<p>But how do we even determine whether it will be able to reach or not? This is done like this.</p>
+<p>When the details of a dispatched package are received, this node notes the current sim time. Now when the arm drops the package it was busy with, in the bin, the sim time is noted again.
+The difference between both of these times tells us the time elapsed so far since the package was dispatched. Let’s call this difference <strong>time_elapsed_after_dispatch</strong>.</p>
+<p>Time taken by the package to get to the home position #1 is experimentally determined to be <strong>6.7 seconds</strong>.</p>
+<p>Now if we minus the <strong>time_elapsed_after_dispatch</strong> from <strong>6.7 seconds</strong>, we will get the time required by the package to reach home position #1 from the current location on the conveyor belt.</p>
+<p>From the saved trajectories, we already know the time it will take for the arm to reach home position #1 from the current bin. By comparing these two times, we
+can be sure whether the UR5#2 arm will be able to reach home position #1 before the package reaches there or not. If it can, the arm will go to home position #1 otherwise it will
+go to home position #2. It is observed that the arm can reach home position #2 every time before the package reaches there so no need to make similar decisions for this home position.</p>
+<p>Now one may ask why so much hassle? Why can’t we just stop the belt if the package reaches before the arm?</p>
+<p>The answer is that if the belt is stopped then the package coming behind it will also be stopped which will then result in more time to ship that package. If we pick the package from home position #2 where the arm will reach before the package arrives there, the package coming from the back won’t have to stop. Therefore to keep the belt running continuously, this method is used.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Home position #1 is preferred over home position #2 because from there the packages can be picked as soon as possible so that the arm can get enough time to get ready to pick the next package.</p>
+</div>
+<p>Now after attaching the package to the vacuum gripper, a saved trajectory is played to drop that package in the correct bin. The Colour of the bin was determined from the details received
+earlier about the dispatched package from <a class="reference external" href="./pkg_task5/scripts/node_ur5_1_pick.html">node_ur5_1_pick</a>.</p>
+<p>After dropping the package, the ShippedOrders sheet is also updated by sending a goal to the Ros-IoT bridge action server through an action client. Using google’s app script, an email
+notification is also sent to the customer that their order has been shipped.</p>
+</div>
+</div>
+<div class="section" id="dashboard">
+<h2>4.8. Dashboard<a class="headerlink" href="#dashboard" title="Permalink to this headline">¶</a></h2>
+<p>A dashboard is necessary to provide at-a-glance views of key performance indicators. This is how the dashboard looks like:</p>
+<p>You can access the dashboard from this link.</p>
+<p>In the dashboard, the following details are shown:</p>
+<div class="section" id="map">
+<h3>4.8.1. Map<a class="headerlink" href="#map" title="Permalink to this headline">¶</a></h3>
+<p>In the map, the location of the orders is shown with the help of a marker. Users can hover over these markers to see the details and status of the order. This map is updated every 1 second.</p>
+<img alt="../_images/map.png" src="../_images/map.png" />
+<p>As you can see there are three types of markers.</p>
+<p>Red is when the order is placed.</p>
+<p>Yellow when the order is dispatched.</p>
+<p>Green when the order is shipped.</p>
+<p>For making this map, <a class="reference external" href="https://leafletjs.com/">Leaflet</a> is used.</p>
+</div>
+<div class="section" id="table">
+<h3>4.8.2. Table<a class="headerlink" href="#table" title="Permalink to this headline">¶</a></h3>
+<p>This table summarizes all the details of an order. The table can be sorted by clicking the column header. This table is also refreshed every 1 second.</p>
+<img alt="../_images/table.png" src="../_images/table.png" />
+<p>To make this table, the <a class="reference external" href="https://www.datatables.net/">DataTables</a> jQuery plugin is used.</p>
+</div>
+<div class="section" id="bar-graph">
+<h3>4.8.3. Bar Graph<a class="headerlink" href="#bar-graph" title="Permalink to this headline">¶</a></h3>
+<p>This graph shows the time taken for the order to get shipped from when the order was placed. Medicines are shown with a red bar, Food with a yellow bar
+and Clothes are shown with a green bar.</p>
+<img alt="../_images/bar_graph.png" src="../_images/bar_graph.png" />
+<p>This table is linked with the table we have made. Therefore, whatever changes we make to the table like sorting, search, etc. are also reflected in the bar graph for a better user experience.</p>
+<p>To make this bar graph, the <a class="reference external" href="https://www.highcharts.com/">HighCharts</a> jQuery plugin is used.</p>
+</div>
+</div>
+<div class="section" id="rqt-graph">
+<h2>4.9. RQT Graph<a class="headerlink" href="#rqt-graph" title="Permalink to this headline">¶</a></h2>
+<p>To get a deeper understanding of how everything is working, you can refer to this RQT graph. Here all the connections between nodes are shown.</p>
+<img alt="../_images/rosgraph.png" src="../_images/rosgraph.png" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="api_documentation.html" class="btn btn-neutral float-right" title="5. API Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="introduction.html" class="btn btn-neutral float-left" title="3. Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Rahul, Team Leader VB#0574.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
