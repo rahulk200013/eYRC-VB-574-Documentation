@@ -129,10 +129,18 @@
 <li class="toctree-l2"><a class="reference internal" href="../rst/implementation.html#qr-detection">4.3. QR Detection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../rst/implementation.html#ros-iot-bridge-setup">4.4. Ros-IoT Bridge Setup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../rst/implementation.html#order-handling">4.5. Order Handling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../rst/implementation.html#picking-up-packages-from-shelf">4.6. Picking Up Packages From Shelf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rst/implementation.html#picking-up-packages-from-shelf">4.6. Picking Up Packages From Shelf</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../rst/implementation.html#there-are-no-orders-to-process-for-now">4.6.1. There are no orders to process for now</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rst/implementation.html#there-are-orders-to-process">4.6.2. There are orders to process</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../rst/implementation.html#placing-packages-in-the-bin">4.7. Placing Packages in the Bin</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../rst/implementation.html#when-ur5-2-arm-is-free">4.7.1. When UR5#2 arm is free</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../rst/implementation.html#when-ur5-2-arm-is-busy">4.7.2. When UR5#2 arm is busy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rst/implementation.html#deciding-position-to-pickup-the-package">4.7.1. Deciding position to pickup the package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rst/implementation.html#keeping-the-conveyor-belt-running">4.7.2. Keeping the Conveyor Belt running</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../rst/implementation.html#when-ur5-2-arm-is-free">4.7.2.1. When UR5#2 arm is free</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rst/implementation.html#when-ur5-2-arm-is-busy">4.7.2.2. When UR5#2 arm is busy</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../rst/implementation.html#dashboard">4.8. Dashboard</a><ul>
@@ -180,20 +188,28 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../rst/pkg_task5/YAML_files.html">5.1.4. YAML Files</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home1_to_xxx_bin.html">5.1.4.1. home1_to_xxx_bin.yaml</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home1_to_xxx_bin.html#description">5.1.4.1.1. Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home_to_pkgnxx.html">5.1.4.1. home_to_pkgn<em>xx</em>.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home_to_pkgnxx.html#description">5.1.4.1.1. Description</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home2_to_xxx_bin.html">5.1.4.2. home2_to_xxx_bin.yaml</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home2_to_xxx_bin.html#description">5.1.4.2.1. Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/pkgnxx_to_home.html">5.1.4.2. pkgn<em>xx</em>_to_home.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/pkgnxx_to_home.html#description">5.1.4.2.1. Description</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home_to_pkgnxx.html">5.1.4.3. home_to_pkgn<em>xx</em>.yaml</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home_to_pkgnxx.html#description">5.1.4.3.1. Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home_to_waiting_pose_1.html">5.1.4.3. home_to_waiting_pose_1.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home_to_waiting_pose_1.html#description">5.1.4.3.1. Description</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/pkgnxx_to_home.html">5.1.4.4. pkgn<em>xx</em>_to_home.yaml</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/pkgnxx_to_home.html#description">5.1.4.4.1. Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/waiting_pose_1_to_pkgnxx.html">5.1.4.4. waiting_pose_1_to_pkgn<em>xx</em>.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/waiting_pose_1_to_pkgnxx.html#description">5.1.4.4.1. Description</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home_y_to_xxx_bin.html">5.1.4.5. home_y_to_xxx_bin.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home_y_to_xxx_bin.html#description">5.1.4.5.1. Description</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/xxx_bin_to_home_y.html">5.1.4.6. xxx_bin_to_home_y.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/xxx_bin_to_home_y.html#description">5.1.4.6.1. Description</a></li>
 </ul>
 </li>
 </ul>
@@ -408,6 +424,18 @@
         <span class="c1"># Current State of the Robot is needed to add box to planning scene</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_curr_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_robot</span><span class="o">.</span><span class="n">get_current_state</span><span class="p">()</span>
 
+        <span class="c1"># Waiting for new order</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">waiting</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="c1"># Time when the UR5#1 arm started waiting for new orders</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">waiting_start_time</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1"># Flag whether we should check if there is any benefit in going to the waiting position</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">check_waiting_position_benefit</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="c1"># Flag to tell if UR5#1 arm is at waiting pose or not</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">at_waiting_pose</span> <span class="o">=</span> <span class="kc">False</span>
+
         <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span>
             <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[94m&#39;</span> <span class="o">+</span> <span class="s2">&quot;Planning Group: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_planning_frame</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[0m&#39;</span><span class="p">)</span>
         <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span>
@@ -416,38 +444,6 @@
             <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[94m&#39;</span> <span class="o">+</span> <span class="s2">&quot;Group Names: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_group_names</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[0m&#39;</span><span class="p">)</span>
 
         <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[94m&#39;</span> <span class="o">+</span> <span class="s2">&quot; &gt;&gt;&gt; Ur5Moveit init done.&quot;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[0m&#39;</span><span class="p">)</span>
-
-<div class="viewcode-block" id="Ur5Moveit.go_to_pose"><a class="viewcode-back" href="../rst/pkg_task5/scripts/node_ur5_1_pick.html#node_ur5_1_pick.Ur5Moveit.go_to_pose">[docs]</a>    <span class="k">def</span> <span class="nf">go_to_pose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg_pose</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Make the vacuum gripper go to a certain position in space</span>
-
-<span class="sd">        :param arg_pose: goal pose of the vacuum gripper</span>
-<span class="sd">        :type arg_pose: geometry_msgs.msg.Pose()</span>
-<span class="sd">        :return: Success flag</span>
-<span class="sd">        :rtype: bool</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_group</span><span class="o">.</span><span class="n">set_pose_target</span><span class="p">(</span><span class="n">arg_pose</span><span class="p">)</span>
-        <span class="n">flag_plan</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group</span><span class="o">.</span><span class="n">go</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># wait=False for Async Move</span>
-
-        <span class="k">return</span> <span class="n">flag_plan</span></div>
-
-<div class="viewcode-block" id="Ur5Moveit.hard_go_to_pose"><a class="viewcode-back" href="../rst/pkg_task5/scripts/node_ur5_1_pick.html#node_ur5_1_pick.Ur5Moveit.hard_go_to_pose">[docs]</a>    <span class="k">def</span> <span class="nf">hard_go_to_pose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg_pose</span><span class="p">,</span> <span class="n">arg_max_attempts</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Try going to a pose again and until success or max attempts exhausted</span>
-
-<span class="sd">        :param arg_pose: goal pose of the vacuum gripper</span>
-<span class="sd">        :type arg_pose: geometry_msgs.msg.Pose()</span>
-<span class="sd">        :param arg_max_attempts: maximum number of attempts to try</span>
-<span class="sd">        :type arg_max_attempts: int</span>
-<span class="sd">        :return: None</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">number_attempts</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">flag_success</span> <span class="o">=</span> <span class="kc">False</span>
-
-        <span class="k">while</span> <span class="n">number_attempts</span> <span class="o">&lt;=</span> <span class="n">arg_max_attempts</span> <span class="ow">and</span> <span class="n">flag_success</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
-            <span class="n">number_attempts</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="n">flag_success</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">go_to_pose</span><span class="p">(</span><span class="n">arg_pose</span><span class="p">)</span>
-            <span class="n">rospy</span><span class="o">.</span><span class="n">logwarn</span><span class="p">(</span><span class="s2">&quot;attempts: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">number_attempts</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="Ur5Moveit.set_joint_angles"><a class="viewcode-back" href="../rst/pkg_task5/scripts/node_ur5_1_pick.html#node_ur5_1_pick.Ur5Moveit.set_joint_angles">[docs]</a>    <span class="k">def</span> <span class="nf">set_joint_angles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg_list_joint_angles</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -482,40 +478,6 @@
             <span class="n">flag_success</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_joint_angles</span><span class="p">(</span><span class="n">arg_list_joint_angles</span><span class="p">)</span>
             <span class="n">rospy</span><span class="o">.</span><span class="n">logwarn</span><span class="p">(</span><span class="s2">&quot;attempts: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">number_attempts</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="Ur5Moveit.attach_box"><a class="viewcode-back" href="../rst/pkg_task5/scripts/node_ur5_1_pick.html#node_ur5_1_pick.Ur5Moveit.attach_box">[docs]</a>    <span class="k">def</span> <span class="nf">attach_box</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">box_name</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Attach box received in arguments to arm in RViz</span>
-
-<span class="sd">        :param box_name: name of box to attach</span>
-<span class="sd">        :type box_name: str</span>
-<span class="sd">        :param timeout: time(s) to wait for state update else return False</span>
-<span class="sd">        :type timeout: int</span>
-<span class="sd">        :return: Success Flag</span>
-<span class="sd">        :rtype: bool</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">grasping_group</span> <span class="o">=</span> <span class="s1">&#39;manipulator&#39;</span>
-        <span class="n">touch_links</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_robot</span><span class="o">.</span><span class="n">get_link_names</span><span class="p">(</span><span class="n">group</span><span class="o">=</span><span class="n">grasping_group</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_scene</span><span class="o">.</span><span class="n">attach_box</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_eef_link</span><span class="p">,</span> <span class="n">box_name</span><span class="p">,</span> <span class="n">touch_links</span><span class="o">=</span><span class="n">touch_links</span><span class="p">)</span>
-
-        <span class="c1"># We wait for the planning scene to update.</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">wait_for_state_update</span><span class="p">(</span><span class="n">box_is_attached</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">box_is_known</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="Ur5Moveit.detach_box"><a class="viewcode-back" href="../rst/pkg_task5/scripts/node_ur5_1_pick.html#node_ur5_1_pick.Ur5Moveit.detach_box">[docs]</a>    <span class="k">def</span> <span class="nf">detach_box</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">box_name</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Detach box received in arguments to arm in RViz</span>
-
-<span class="sd">        :param box_name: name of box to detach</span>
-<span class="sd">        :type box_name: str</span>
-<span class="sd">        :param timeout: time(s) to wait for state update else return False</span>
-<span class="sd">        :type timeout: int</span>
-<span class="sd">        :return: Success Flag</span>
-<span class="sd">        :rtype: bool</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_scene</span><span class="o">.</span><span class="n">remove_attached_object</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_eef_link</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">box_name</span><span class="p">)</span>
-
-        <span class="c1"># We wait for the planning scene to update.</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">wait_for_state_update</span><span class="p">(</span><span class="n">box_is_known</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">box_is_attached</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span></div>
-
 <div class="viewcode-block" id="Ur5Moveit.attach_box_in_gazebo"><a class="viewcode-back" href="../rst/pkg_task5/scripts/node_ur5_1_pick.html#node_ur5_1_pick.Ur5Moveit.attach_box_in_gazebo">[docs]</a>    <span class="k">def</span> <span class="nf">attach_box_in_gazebo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Activate vacuum gripper of arm in gazebo</span>
@@ -543,59 +505,6 @@
             <span class="k">return</span> <span class="n">resp1</span><span class="o">.</span><span class="n">result</span>
         <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span> <span class="k">as</span> <span class="n">exception</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Service call failed: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">exception</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="Ur5Moveit.remove_box"><a class="viewcode-back" href="../rst/pkg_task5/scripts/node_ur5_1_pick.html#node_ur5_1_pick.Ur5Moveit.remove_box">[docs]</a>    <span class="k">def</span> <span class="nf">remove_box</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">box_name</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Remove box from planning scene in RViz</span>
-
-<span class="sd">        :param box_name: name of box to remove</span>
-<span class="sd">        :type box_name: str</span>
-<span class="sd">        :param timeout: time(s) to wait for state update else return False</span>
-<span class="sd">        :type timeout: int</span>
-<span class="sd">        :return: Success flag</span>
-<span class="sd">        :rtype: bool</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_scene</span><span class="o">.</span><span class="n">remove_world_object</span><span class="p">(</span><span class="n">box_name</span><span class="p">)</span>
-
-        <span class="c1"># We wait for the planning scene to update.</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">wait_for_state_update</span><span class="p">(</span><span class="n">box_is_attached</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                                          <span class="n">box_is_known</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="Ur5Moveit.wait_for_state_update"><a class="viewcode-back" href="../rst/pkg_task5/scripts/node_ur5_1_pick.html#node_ur5_1_pick.Ur5Moveit.wait_for_state_update">[docs]</a>    <span class="k">def</span> <span class="nf">wait_for_state_update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">box_is_known</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">box_is_attached</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Wait before all the required changes are made in the planning scene in RViz</span>
-
-<span class="sd">        :param box_is_known: Flag whether the box is present in planning scene or not</span>
-<span class="sd">        :type box_is_known: bool</span>
-<span class="sd">        :param box_is_attached: flag whether the box is attached to arm or not in RViz</span>
-<span class="sd">        :type box_is_attached: bool</span>
-<span class="sd">        :param timeout: time(s) to wait for the state to update</span>
-<span class="sd">        :type timeout: int</span>
-<span class="sd">        :return: success flag</span>
-<span class="sd">        :rtype: bool</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">start</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span>
-        <span class="n">seconds</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span>
-        <span class="k">while</span> <span class="p">(</span><span class="n">seconds</span> <span class="o">-</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="n">timeout</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">rospy</span><span class="o">.</span><span class="n">is_shutdown</span><span class="p">():</span>
-            <span class="c1"># Test if the box is in attached objects</span>
-            <span class="n">attached_objects</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_scene</span><span class="o">.</span><span class="n">get_attached_objects</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_box_name</span><span class="p">])</span>
-
-            <span class="n">is_attached</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">attached_objects</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-
-            <span class="c1"># Test if the box is in the scene.</span>
-            <span class="c1"># Note that attaching the box will remove it from known_objects</span>
-            <span class="n">is_known</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_box_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_scene</span><span class="o">.</span><span class="n">get_known_object_names</span><span class="p">()</span>
-
-            <span class="c1"># Test if we are in the expected state</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">box_is_attached</span> <span class="o">==</span> <span class="n">is_attached</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">box_is_known</span> <span class="o">==</span> <span class="n">is_known</span><span class="p">):</span>
-                <span class="k">return</span> <span class="kc">True</span>
-
-            <span class="c1"># Sleep so that we give other threads time on the processor</span>
-            <span class="n">rospy</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
-            <span class="n">seconds</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span>
-
-        <span class="c1"># If we exited the while loop without returning then we timed out</span>
-        <span class="k">return</span> <span class="kc">False</span></div>
 
 <div class="viewcode-block" id="Ur5Moveit.play_saved_trajectory"><a class="viewcode-back" href="../rst/pkg_task5/scripts/node_ur5_1_pick.html#node_ur5_1_pick.Ur5Moveit.play_saved_trajectory">[docs]</a>    <span class="k">def</span> <span class="nf">play_saved_trajectory</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trajectory</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -765,7 +674,7 @@
 
         <span class="c1"># Comm State - Monitors the State Machine of the Client which is different from Server&#39;s</span>
         <span class="c1"># Comm State = 2 -&gt; Active</span>
-        <span class="c1"># Comm State = 3 -&gt; Wating for Result</span>
+        <span class="c1"># Comm State = 3 -&gt; Waiting for Result</span>
         <span class="c1"># Comm State = 7 -&gt; Done</span>
 
         <span class="c1"># if (Comm State == ACTIVE)</span>
@@ -831,7 +740,7 @@
     <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;node_ur5_1_pick&#39;</span><span class="p">)</span>
 
     <span class="c1"># Wait for models to spawn in gazebo</span>
-    <span class="k">while</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="k">while</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
         <span class="k">continue</span>
 
     <span class="c1"># Action Client initialized</span>
@@ -845,73 +754,73 @@
     <span class="n">qr_decode</span><span class="o">.</span><span class="n">detect_colours</span><span class="p">()</span>
     <span class="n">rospy</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
 
-    <span class="c1"># Print colour of the packages on terminal</span>
-    <span class="n">camera</span><span class="o">.</span><span class="n">print_colours</span><span class="p">()</span>
-
     <span class="n">orders_list</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">orders_time_list</span> <span class="o">=</span> <span class="p">[]</span>
 
-    <span class="n">rospy</span><span class="o">.</span><span class="n">Subscriber</span><span class="p">(</span><span class="s1">&#39;eyrc/vb/orders&#39;</span><span class="p">,</span> <span class="n">NewOrder</span><span class="p">,</span> <span class="n">new_order_callback</span><span class="p">,</span>
-                     <span class="p">(</span><span class="n">orders_list</span><span class="p">,</span> <span class="n">orders_time_list</span><span class="p">))</span>
+    <span class="n">rospy</span><span class="o">.</span><span class="n">Subscriber</span><span class="p">(</span><span class="s1">&#39;eyrc/vb/orders&#39;</span><span class="p">,</span> <span class="n">NewOrder</span><span class="p">,</span> <span class="n">new_order_callback</span><span class="p">,</span> <span class="n">orders_list</span><span class="p">)</span>
 
     <span class="c1"># Update spreadsheet with Packages available in Inventory</span>
     <span class="n">update_inventory</span><span class="p">(</span><span class="n">camera</span><span class="o">.</span><span class="n">get_pkg_colour_list</span><span class="p">(),</span> <span class="n">action_client</span><span class="p">)</span>
     <span class="n">rospy</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
 
-    <span class="c1"># Dictionary to store all the saved trajectories</span>
+    <span class="c1"># Dictionary to load and store all the saved trajectories</span>
     <span class="n">saved_trajectories</span> <span class="o">=</span> <span class="p">{}</span>
 
     <span class="c1"># Load saved trajectories and store them in dictionary for future use</span>
     <span class="n">load_saved_trajectories</span><span class="p">(</span><span class="n">saved_trajectories</span><span class="p">)</span>
 
-    <span class="c1"># Initialize object to control of class Ur5Moveit to control ur5_1</span>
+    <span class="c1"># Initialize object of class Ur5Moveit to control ur5_1</span>
     <span class="n">ur5_1</span> <span class="o">=</span> <span class="n">Ur5Moveit</span><span class="p">(</span><span class="s1">&#39;ur5_1&#39;</span><span class="p">)</span>
-
-    <span class="c1"># Home joint angles (position over the conveyor belt)</span>
-    <span class="n">ur5_1_home_joint_angles</span> <span class="o">=</span> <span class="p">[</span><span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>
-                               <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="o">-</span><span class="mi">109</span><span class="p">),</span>
-                               <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="o">-</span><span class="mi">82</span><span class="p">),</span>
-                               <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="o">-</span><span class="mi">79</span><span class="p">),</span>
-                               <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">90</span><span class="p">),</span>
-                               <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">)]</span>
-
-    <span class="c1"># Store total number of packages dropped on the conveyor belt</span>
-    <span class="n">total_pkg_dropped</span> <span class="o">=</span> <span class="mi">0</span>
 
     <span class="c1"># Initialize object to store data of the dispatched package</span>
     <span class="n">dispatched_pkg</span> <span class="o">=</span> <span class="n">DispatchedPkg</span><span class="p">()</span>
 
     <span class="c1"># Topic to publish the dispatched pkg</span>
-    <span class="n">dispatched_pkg_pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s1">&#39;eyrc/ur5_2_place/pkg&#39;</span><span class="p">,</span> <span class="n">DispatchedPackage</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">dispatched_pkg_pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s1">&#39;eyrc/vb/dispatched_pkg&#39;</span><span class="p">,</span> <span class="n">DispatchedPackage</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 
-    <span class="n">ur5_1</span><span class="o">.</span><span class="n">set_joint_angles</span><span class="p">(</span><span class="n">ur5_1_home_joint_angles</span><span class="p">)</span>
+    <span class="c1"># Go to home position</span>
+    <span class="n">go_to_home_position</span><span class="p">(</span><span class="n">ur5_1</span><span class="p">)</span>
 
     <span class="c1"># Start the conveyor belt at 100% speed</span>
     <span class="n">start_conveyor_belt</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 
     <span class="c1"># Main loop</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="c1"># Break the loop once all 9 packages are dropped on the conveyor belt</span>
-        <span class="k">if</span> <span class="n">total_pkg_dropped</span> <span class="o">==</span> <span class="mi">9</span><span class="p">:</span>
-            <span class="k">break</span>
 
+        <span class="k">if</span> <span class="n">ur5_1</span><span class="o">.</span><span class="n">check_waiting_position_benefit</span><span class="p">:</span>
+            <span class="c1"># Play the saved to trajectory to go to the waiting position</span>
+            <span class="n">benefit</span> <span class="o">=</span> <span class="n">waiting_position_benefit</span><span class="p">(</span><span class="n">camera</span><span class="p">)</span>
+
+            <span class="c1"># If there is any benefit</span>
+            <span class="k">if</span> <span class="n">benefit</span><span class="p">:</span>
+                <span class="n">trajectory_name</span> <span class="o">=</span> <span class="s1">&#39;home_to_waiting_pose_1.yaml&#39;</span>
+                <span class="n">ur5_1</span><span class="o">.</span><span class="n">hard_play_saved_trajectory</span><span class="p">(</span><span class="n">saved_trajectories</span><span class="p">[</span><span class="n">trajectory_name</span><span class="p">],</span> <span class="mi">5</span><span class="p">)</span>
+
+                <span class="n">ur5_1</span><span class="o">.</span><span class="n">at_waiting_pose</span> <span class="o">=</span> <span class="kc">True</span>
+
+            <span class="c1"># Reset check benefit flag</span>
+            <span class="n">ur5_1</span><span class="o">.</span><span class="n">check_waiting_position_benefit</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="c1"># If there is any order we need to process</span>
         <span class="k">if</span> <span class="n">orders_list</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">total_pkg_dropped</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
-                <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-                    <span class="k">if</span> <span class="n">orders_list</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;Order ID&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;1002&quot;</span><span class="p">:</span>
-                        <span class="k">break</span>
 
+            <span class="c1"># Pick out the first order in the sorted orders list</span>
             <span class="n">current_order</span> <span class="o">=</span> <span class="n">orders_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+            <span class="c1"># Remove the order we are processing from the list</span>
             <span class="n">orders_list</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
-            <span class="n">row</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="n">find_correct_pkg_on_shelf</span><span class="p">(</span><span class="n">camera</span><span class="p">,</span> <span class="n">current_order</span><span class="p">)</span>
+            <span class="c1"># Find the location of the package to pick from the shelf</span>
+            <span class="n">row</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="n">find_correct_pkg_on_shelf</span><span class="p">(</span><span class="n">camera</span><span class="p">,</span> <span class="n">current_order</span><span class="p">,</span> <span class="n">ur5_1</span><span class="o">.</span><span class="n">at_waiting_pose</span><span class="p">)</span>
 
             <span class="c1"># If correct package is found</span>
             <span class="k">if</span> <span class="n">row</span> <span class="ow">or</span> <span class="n">column</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 
-                <span class="c1"># Play the saved to trajectory to pick the package</span>
-                <span class="n">trajectory_name</span> <span class="o">=</span> <span class="s1">&#39;home_to_pkgn&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">row</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">column</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.yaml&#39;</span>
-                <span class="n">ur5_1</span><span class="o">.</span><span class="n">hard_play_saved_trajectory</span><span class="p">(</span><span class="n">saved_trajectories</span><span class="p">[</span><span class="n">trajectory_name</span><span class="p">],</span> <span class="mi">5</span><span class="p">)</span>
+                <span class="c1"># Move UR5#1 arm to the package to pick it up</span>
+                <span class="n">go_to_package</span><span class="p">(</span><span class="n">ur5_1</span><span class="p">,</span> <span class="n">saved_trajectories</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="p">)</span>
+
+                <span class="c1"># Reset waiting mechanism</span>
+                <span class="n">ur5_1</span><span class="o">.</span><span class="n">waiting</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="n">ur5_1</span><span class="o">.</span><span class="n">at_waiting_pose</span> <span class="o">=</span> <span class="kc">False</span>
 
                 <span class="c1"># Attach the package EE of ur5_1</span>
                 <span class="n">ur5_1</span><span class="o">.</span><span class="n">attach_box_in_gazebo</span><span class="p">()</span>
@@ -932,14 +841,42 @@
                                            <span class="n">dispatched_pkg</span><span class="o">.</span><span class="n">colour</span><span class="p">,</span>
                                            <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">current_order</span><span class="p">))</span>
 
+                <span class="c1"># Update DispatchedOrders sheet</span>
                 <span class="n">update_orders_dispatched_sheet</span><span class="p">(</span><span class="n">current_order</span><span class="p">,</span> <span class="n">action_client</span><span class="p">)</span>
 
-                <span class="n">total_pkg_dropped</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="c1"># If arm not at waiting position currently</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="n">ur5_1</span><span class="o">.</span><span class="n">at_waiting_pose</span><span class="p">:</span>
+            <span class="c1"># If arm has just processed an order and no new order left to process, start waiting</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">ur5_1</span><span class="o">.</span><span class="n">waiting</span><span class="p">:</span>
+                <span class="n">ur5_1</span><span class="o">.</span><span class="n">waiting_start_time</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span>
+                <span class="n">ur5_1</span><span class="o">.</span><span class="n">waiting</span> <span class="o">=</span> <span class="kc">True</span>
 
-    <span class="c1"># print(&quot;Start time: &quot;, start_time)</span>
-    <span class="c1"># print(&quot;Time list: &quot;, orders_time_list)</span>
+            <span class="c1"># If waited for more than 2 seconds, set check benefit at waiting pose flag to true</span>
+            <span class="k">if</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span> <span class="o">-</span> <span class="n">ur5_1</span><span class="o">.</span><span class="n">waiting_start_time</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">ur5_1</span><span class="o">.</span><span class="n">check_waiting_position_benefit</span> <span class="o">=</span> <span class="kc">True</span>
+
     <span class="k">while</span> <span class="ow">not</span> <span class="n">rospy</span><span class="o">.</span><span class="n">is_shutdown</span><span class="p">():</span>
         <span class="k">continue</span></div>
+
+
+<div class="viewcode-block" id="go_to_home_position"><a class="viewcode-back" href="../rst/pkg_task5/scripts/node_ur5_1_pick.html#node_ur5_1_pick.go_to_home_position">[docs]</a><span class="k">def</span> <span class="nf">go_to_home_position</span><span class="p">(</span><span class="n">ur5_1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Move UR5#1 arm to its home position</span>
+
+<span class="sd">    :param ur5_1: Object of class Ur5Moveit to control UR5#1 arm</span>
+<span class="sd">    :type ur5_1: Object of class Ur5Moveit</span>
+<span class="sd">    :return: None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Home joint angles (position over the conveyor belt)</span>
+    <span class="n">ur5_1_home_joint_angles</span> <span class="o">=</span> <span class="p">[</span><span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>
+                               <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="o">-</span><span class="mi">109</span><span class="p">),</span>
+                               <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="o">-</span><span class="mi">82</span><span class="p">),</span>
+                               <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="o">-</span><span class="mi">79</span><span class="p">),</span>
+                               <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">90</span><span class="p">),</span>
+                               <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">)]</span>
+
+    <span class="n">ur5_1</span><span class="o">.</span><span class="n">set_joint_angles</span><span class="p">(</span><span class="n">ur5_1_home_joint_angles</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="update_inventory"><a class="viewcode-back" href="../rst/pkg_task5/scripts/node_ur5_1_pick.html#node_ur5_1_pick.update_inventory">[docs]</a><span class="k">def</span> <span class="nf">update_inventory</span><span class="p">(</span><span class="n">pkg_colour_list</span><span class="p">,</span> <span class="n">action_client</span><span class="p">):</span>
@@ -986,8 +923,13 @@
                           <span class="s2">&quot;Cost&quot;</span><span class="p">:</span> <span class="n">cost</span><span class="p">,</span>
                           <span class="s2">&quot;Quantity&quot;</span><span class="p">:</span> <span class="n">quantity</span><span class="p">}</span>
 
+            <span class="c1"># Send data to our spreadsheet</span>
             <span class="n">action_client</span><span class="o">.</span><span class="n">send_goal</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">,</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="s2">&quot;NA&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">parameters</span><span class="p">))</span>
-            <span class="n">rospy</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span></div>
+
+            <span class="c1"># Send data to eyantra&#39;s spreadsheet</span>
+            <span class="n">action_client</span><span class="o">.</span><span class="n">send_goal</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">,</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="s2">&quot;eyantra&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">parameters</span><span class="p">))</span>
+
+            <span class="n">rospy</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="update_orders_dispatched_sheet"><a class="viewcode-back" href="../rst/pkg_task5/scripts/node_ur5_1_pick.html#node_ur5_1_pick.update_orders_dispatched_sheet">[docs]</a><span class="k">def</span> <span class="nf">update_orders_dispatched_sheet</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">action_client</span><span class="p">):</span>
@@ -1029,21 +971,24 @@
                   <span class="s2">&quot;Dispatch Status&quot;</span><span class="p">:</span> <span class="s2">&quot;Yes&quot;</span><span class="p">,</span>
                   <span class="s2">&quot;Dispatch Date and Time&quot;</span><span class="p">:</span> <span class="n">str_time</span><span class="p">}</span>
 
-    <span class="n">action_client</span><span class="o">.</span><span class="n">send_goal</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">,</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="s2">&quot;NA&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">parameters</span><span class="p">))</span></div>
+    <span class="c1"># Send data to our spreadsheet</span>
+    <span class="n">action_client</span><span class="o">.</span><span class="n">send_goal</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">,</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="s2">&quot;NA&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">parameters</span><span class="p">))</span>
+
+    <span class="c1"># Send data to eyantra&#39;s spreadsheet</span>
+    <span class="n">action_client</span><span class="o">.</span><span class="n">send_goal</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">,</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="s2">&quot;eyantra&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">parameters</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="new_order_callback"><a class="viewcode-back" href="../rst/pkg_task5/scripts/node_ur5_1_pick.html#node_ur5_1_pick.new_order_callback">[docs]</a><span class="k">def</span> <span class="nf">new_order_callback</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+<div class="viewcode-block" id="new_order_callback"><a class="viewcode-back" href="../rst/pkg_task5/scripts/node_ur5_1_pick.html#node_ur5_1_pick.new_order_callback">[docs]</a><span class="k">def</span> <span class="nf">new_order_callback</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">orders_list</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Callback function called whenever a new order is placed</span>
 
 <span class="sd">    :param msg: Order details</span>
 <span class="sd">    :type msg: json object</span>
-<span class="sd">    :param args: List of the current active orders</span>
-<span class="sd">    :type args: list</span>
+<span class="sd">    :param orders_list: List of the current active orders</span>
+<span class="sd">    :type orders_list: list</span>
 <span class="sd">    :return: None</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">orders_list</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">orders_time_list</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
     <span class="n">order</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">order</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">order</span><span class="p">[</span><span class="s2">&quot;Priority&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;HP&quot;</span><span class="p">:</span>
@@ -1058,8 +1003,6 @@
     <span class="n">sorted_orders_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">orders_list</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">i</span><span class="p">[</span><span class="s2">&quot;Cost&quot;</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">del</span> <span class="n">orders_list</span><span class="p">[:]</span>
     <span class="n">orders_list</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">sorted_orders_list</span><span class="p">)</span>
-
-    <span class="n">orders_time_list</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">order</span><span class="p">[</span><span class="s2">&quot;Priority&quot;</span><span class="p">],</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()])</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;######### UPDATED ORDERS LIST ##########&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">orders_list</span><span class="p">)</span></div>
@@ -1087,7 +1030,22 @@
             <span class="n">file_path</span> <span class="o">=</span> <span class="n">arg_file_path</span> <span class="o">+</span> <span class="n">arg_file_name</span>
 
             <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_open</span><span class="p">:</span>
-                <span class="n">saved_trajectories</span><span class="p">[</span><span class="n">arg_file_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file_open</span><span class="p">)</span></div>
+                <span class="n">saved_trajectories</span><span class="p">[</span><span class="n">arg_file_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file_open</span><span class="p">)</span>
+
+    <span class="n">pkgs_in_waiting_area</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;12&#39;</span><span class="p">,</span> <span class="s1">&#39;22&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">,</span> <span class="s1">&#39;32&#39;</span><span class="p">,</span> <span class="s1">&#39;20&#39;</span><span class="p">,</span> <span class="s1">&#39;21&#39;</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">pkg</span> <span class="ow">in</span> <span class="n">pkgs_in_waiting_area</span><span class="p">:</span>
+        <span class="n">arg_file_name</span> <span class="o">=</span> <span class="s1">&#39;waiting_pose_1_to_pkgn&#39;</span> <span class="o">+</span> <span class="n">pkg</span> <span class="o">+</span> <span class="s1">&#39;.yaml&#39;</span>
+        <span class="n">file_path</span> <span class="o">=</span> <span class="n">arg_file_path</span> <span class="o">+</span> <span class="n">arg_file_name</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_open</span><span class="p">:</span>
+            <span class="n">saved_trajectories</span><span class="p">[</span><span class="n">arg_file_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file_open</span><span class="p">)</span>
+
+    <span class="n">arg_file_name</span> <span class="o">=</span> <span class="s1">&#39;home_to_waiting_pose_1.yaml&#39;</span>
+    <span class="n">file_path</span> <span class="o">=</span> <span class="n">arg_file_path</span> <span class="o">+</span> <span class="n">arg_file_name</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_open</span><span class="p">:</span>
+        <span class="n">saved_trajectories</span><span class="p">[</span><span class="n">arg_file_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file_open</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="start_conveyor_belt"><a class="viewcode-back" href="../rst/pkg_task5/scripts/node_ur5_1_pick.html#node_ur5_1_pick.start_conveyor_belt">[docs]</a><span class="k">def</span> <span class="nf">start_conveyor_belt</span><span class="p">(</span><span class="n">power</span><span class="p">):</span>
@@ -1126,32 +1084,122 @@
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Service call failed: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">exception</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="find_correct_pkg_on_shelf"><a class="viewcode-back" href="../rst/pkg_task5/scripts/node_ur5_1_pick.html#node_ur5_1_pick.find_correct_pkg_on_shelf">[docs]</a><span class="k">def</span> <span class="nf">find_correct_pkg_on_shelf</span><span class="p">(</span><span class="n">camera</span><span class="p">,</span> <span class="n">current_order</span><span class="p">):</span>
+<div class="viewcode-block" id="waiting_position_benefit"><a class="viewcode-back" href="../rst/pkg_task5/scripts/node_ur5_1_pick.html#node_ur5_1_pick.waiting_position_benefit">[docs]</a><span class="k">def</span> <span class="nf">waiting_position_benefit</span><span class="p">(</span><span class="n">camera</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function is called to check if there will be any benefit in picking up package quickly</span>
+<span class="sd">    from the shelf if we go to waiting position or not. It checks whether there are 3 types of</span>
+<span class="sd">    packages(red, yellow, and green) are available in the shelf area covered by the waiting</span>
+<span class="sd">    position or not.</span>
+
+<span class="sd">    :param camera: object storing information packages present on the shelf</span>
+<span class="sd">    :type camera: Object of class ShelfCamera which stores all info related to packages on shelf</span>
+<span class="sd">    :return: Benefit or not to go and wait at home position</span>
+<span class="sd">    :rtype: bool</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Package found flags</span>
+    <span class="n">red_pkg_found</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">yellow_pkg_found</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">green_pkg_found</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="c1"># Benefit of waiting at waiting position or not</span>
+    <span class="n">benefit</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="c1"># Package numbers which can be reached quickly from the waiting position</span>
+    <span class="n">pkgs_in_waiting_area</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">pkg_no</span> <span class="ow">in</span> <span class="n">pkgs_in_waiting_area</span><span class="p">:</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pkg_no</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">column</span> <span class="o">=</span> <span class="n">pkg_no</span> <span class="o">%</span> <span class="mi">10</span>
+
+        <span class="c1"># If red package is found</span>
+        <span class="k">if</span> <span class="n">camera</span><span class="o">.</span><span class="n">get_pkg_colour</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;red&#39;</span><span class="p">:</span>
+            <span class="n">red_pkg_found</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="c1"># If yellow package is found</span>
+        <span class="k">elif</span> <span class="n">camera</span><span class="o">.</span><span class="n">get_pkg_colour</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;yellow&#39;</span><span class="p">:</span>
+            <span class="n">yellow_pkg_found</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="c1"># If green package is found</span>
+        <span class="k">elif</span> <span class="n">camera</span><span class="o">.</span><span class="n">get_pkg_colour</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;green&#39;</span><span class="p">:</span>
+            <span class="n">green_pkg_found</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="c1"># If all three types of packages are found</span>
+        <span class="k">if</span> <span class="n">red_pkg_found</span> <span class="ow">and</span> <span class="n">yellow_pkg_found</span> <span class="ow">and</span> <span class="n">green_pkg_found</span><span class="p">:</span>
+            <span class="c1"># Set benefit to true</span>
+            <span class="n">benefit</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">break</span>
+
+    <span class="c1"># Return benefit (True/False)</span>
+    <span class="k">return</span> <span class="n">benefit</span></div>
+
+
+<div class="viewcode-block" id="find_correct_pkg_on_shelf"><a class="viewcode-back" href="../rst/pkg_task5/scripts/node_ur5_1_pick.html#node_ur5_1_pick.find_correct_pkg_on_shelf">[docs]</a><span class="k">def</span> <span class="nf">find_correct_pkg_on_shelf</span><span class="p">(</span><span class="n">camera</span><span class="p">,</span> <span class="n">current_order</span><span class="p">,</span> <span class="n">at_waiting_pose</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Function to find the correct package to be picked up from the shelf</span>
 
 <span class="sd">    :param camera: object storing information packages present on the shelf</span>
-<span class="sd">    :type camera: Object of class ShelfCamera</span>
+<span class="sd">    :type camera: Object of class ShelfCamera which stores all info related to packages on shelf</span>
 <span class="sd">    :param current_order: Details of order to find on the shelf</span>
 <span class="sd">    :type current_order: dict</span>
+<span class="sd">    :param at_waiting_pose: If UR5#1 arm is at waiting pose or not</span>
+<span class="sd">    :type at_waiting_pose: bool</span>
 <span class="sd">    :return: row and column of the required package</span>
+<span class="sd">    :rtype: int, int</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Search order of packages while selecting the package to pick up</span>
     <span class="n">pkg_search_order</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
 
+    <span class="c1"># Package search order for packages covered by waiting position</span>
+    <span class="n">pkgs_in_waiting_area</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">]</span>
+
     <span class="n">row</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">column</span> <span class="o">=</span> <span class="kc">None</span>
 
-    <span class="k">for</span> <span class="n">pkg_no</span> <span class="ow">in</span> <span class="n">pkg_search_order</span><span class="p">:</span>
-        <span class="n">row</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pkg_no</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)</span>
-        <span class="n">column</span> <span class="o">=</span> <span class="n">pkg_no</span> <span class="o">%</span> <span class="mi">10</span>
+    <span class="k">if</span> <span class="n">at_waiting_pose</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">pkg_no</span> <span class="ow">in</span> <span class="n">pkgs_in_waiting_area</span><span class="p">:</span>
+            <span class="n">row</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pkg_no</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)</span>
+            <span class="n">column</span> <span class="o">=</span> <span class="n">pkg_no</span> <span class="o">%</span> <span class="mi">10</span>
 
-        <span class="k">if</span> <span class="n">camera</span><span class="o">.</span><span class="n">get_pkg_colour</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="p">)</span> <span class="o">==</span> <span class="n">current_order</span><span class="p">[</span><span class="s1">&#39;Colour&#39;</span><span class="p">]:</span>
-            <span class="c1"># Update the inventory and mark the package as NA</span>
-            <span class="n">camera</span><span class="o">.</span><span class="n">pkg_colour_list</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">column</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;NA&#39;</span>
-            <span class="k">break</span>
+            <span class="k">if</span> <span class="n">camera</span><span class="o">.</span><span class="n">get_pkg_colour</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="p">)</span> <span class="o">==</span> <span class="n">current_order</span><span class="p">[</span><span class="s1">&#39;Colour&#39;</span><span class="p">]:</span>
+                <span class="c1"># Update the inventory and mark the package as NA</span>
+                <span class="n">camera</span><span class="o">.</span><span class="n">pkg_colour_list</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">column</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;NA&#39;</span>
+                <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">pkg_no</span> <span class="ow">in</span> <span class="n">pkg_search_order</span><span class="p">:</span>
+            <span class="n">row</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pkg_no</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)</span>
+            <span class="n">column</span> <span class="o">=</span> <span class="n">pkg_no</span> <span class="o">%</span> <span class="mi">10</span>
 
+            <span class="k">if</span> <span class="n">camera</span><span class="o">.</span><span class="n">get_pkg_colour</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="p">)</span> <span class="o">==</span> <span class="n">current_order</span><span class="p">[</span><span class="s1">&#39;Colour&#39;</span><span class="p">]:</span>
+                <span class="c1"># Update the inventory and mark the package as NA</span>
+                <span class="n">camera</span><span class="o">.</span><span class="n">pkg_colour_list</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">column</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;NA&#39;</span>
+                <span class="k">break</span>
+
+    <span class="c1"># Return row and column of the package to pick up</span>
     <span class="k">return</span> <span class="n">row</span><span class="p">,</span> <span class="n">column</span></div>
+
+
+<div class="viewcode-block" id="go_to_package"><a class="viewcode-back" href="../rst/pkg_task5/scripts/node_ur5_1_pick.html#node_ur5_1_pick.go_to_package">[docs]</a><span class="k">def</span> <span class="nf">go_to_package</span><span class="p">(</span><span class="n">ur5_1</span><span class="p">,</span> <span class="n">saved_trajectories</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Move the UR5#1 arm to the package to pick it up</span>
+
+<span class="sd">    :param ur5_1: Object of class Ur5Moveit to control UR5#1 arm</span>
+<span class="sd">    :type ur5_1: Object of class Ur5Moveit</span>
+<span class="sd">    :param saved_trajectories: Dictionary of all the saved trajectories already loaded</span>
+<span class="sd">    :type saved_trajectories: dict</span>
+<span class="sd">    :param row: Row of the package to pick up</span>
+<span class="sd">    :type row: int</span>
+<span class="sd">    :param column: Column of the package to pick up</span>
+<span class="sd">    :type column: int</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># If the arm is currently at the waiting position</span>
+    <span class="k">if</span> <span class="n">ur5_1</span><span class="o">.</span><span class="n">at_waiting_pose</span><span class="p">:</span>
+        <span class="c1"># Play the saved to trajectory to pick the package</span>
+        <span class="n">trajectory_name</span> <span class="o">=</span> <span class="s1">&#39;waiting_pose_1_to_pkgn&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">row</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">column</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.yaml&#39;</span>
+        <span class="n">ur5_1</span><span class="o">.</span><span class="n">hard_play_saved_trajectory</span><span class="p">(</span><span class="n">saved_trajectories</span><span class="p">[</span><span class="n">trajectory_name</span><span class="p">],</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Play the saved to trajectory to pick the package</span>
+        <span class="n">trajectory_name</span> <span class="o">=</span> <span class="s1">&#39;home_to_pkgn&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">row</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">column</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.yaml&#39;</span>
+        <span class="n">ur5_1</span><span class="o">.</span><span class="n">hard_play_saved_trajectory</span><span class="p">(</span><span class="n">saved_trajectories</span><span class="p">[</span><span class="n">trajectory_name</span><span class="p">],</span> <span class="mi">5</span><span class="p">)</span></div>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>

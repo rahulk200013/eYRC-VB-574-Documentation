@@ -129,10 +129,18 @@
 <li class="toctree-l2"><a class="reference internal" href="../rst/implementation.html#qr-detection">4.3. QR Detection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../rst/implementation.html#ros-iot-bridge-setup">4.4. Ros-IoT Bridge Setup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../rst/implementation.html#order-handling">4.5. Order Handling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../rst/implementation.html#picking-up-packages-from-shelf">4.6. Picking Up Packages From Shelf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rst/implementation.html#picking-up-packages-from-shelf">4.6. Picking Up Packages From Shelf</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../rst/implementation.html#there-are-no-orders-to-process-for-now">4.6.1. There are no orders to process for now</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rst/implementation.html#there-are-orders-to-process">4.6.2. There are orders to process</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../rst/implementation.html#placing-packages-in-the-bin">4.7. Placing Packages in the Bin</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../rst/implementation.html#when-ur5-2-arm-is-free">4.7.1. When UR5#2 arm is free</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../rst/implementation.html#when-ur5-2-arm-is-busy">4.7.2. When UR5#2 arm is busy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rst/implementation.html#deciding-position-to-pickup-the-package">4.7.1. Deciding position to pickup the package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rst/implementation.html#keeping-the-conveyor-belt-running">4.7.2. Keeping the Conveyor Belt running</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../rst/implementation.html#when-ur5-2-arm-is-free">4.7.2.1. When UR5#2 arm is free</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rst/implementation.html#when-ur5-2-arm-is-busy">4.7.2.2. When UR5#2 arm is busy</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../rst/implementation.html#dashboard">4.8. Dashboard</a><ul>
@@ -180,20 +188,28 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../rst/pkg_task5/YAML_files.html">5.1.4. YAML Files</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home1_to_xxx_bin.html">5.1.4.1. home1_to_xxx_bin.yaml</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home1_to_xxx_bin.html#description">5.1.4.1.1. Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home_to_pkgnxx.html">5.1.4.1. home_to_pkgn<em>xx</em>.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home_to_pkgnxx.html#description">5.1.4.1.1. Description</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home2_to_xxx_bin.html">5.1.4.2. home2_to_xxx_bin.yaml</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home2_to_xxx_bin.html#description">5.1.4.2.1. Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/pkgnxx_to_home.html">5.1.4.2. pkgn<em>xx</em>_to_home.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/pkgnxx_to_home.html#description">5.1.4.2.1. Description</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home_to_pkgnxx.html">5.1.4.3. home_to_pkgn<em>xx</em>.yaml</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home_to_pkgnxx.html#description">5.1.4.3.1. Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home_to_waiting_pose_1.html">5.1.4.3. home_to_waiting_pose_1.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home_to_waiting_pose_1.html#description">5.1.4.3.1. Description</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/pkgnxx_to_home.html">5.1.4.4. pkgn<em>xx</em>_to_home.yaml</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/pkgnxx_to_home.html#description">5.1.4.4.1. Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/waiting_pose_1_to_pkgnxx.html">5.1.4.4. waiting_pose_1_to_pkgn<em>xx</em>.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/waiting_pose_1_to_pkgnxx.html#description">5.1.4.4.1. Description</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home_y_to_xxx_bin.html">5.1.4.5. home_y_to_xxx_bin.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home_y_to_xxx_bin.html#description">5.1.4.5.1. Description</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/xxx_bin_to_home_y.html">5.1.4.6. xxx_bin_to_home_y.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/xxx_bin_to_home_y.html#description">5.1.4.6.1. Description</a></li>
 </ul>
 </li>
 </ul>
@@ -408,7 +424,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">pkg_not_pickable</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pkg_detected</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">next_bin</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">prev_bin</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prev_bin</span> <span class="o">=</span> <span class="s1">&#39;None&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">home</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">pkg_start_time</span> <span class="o">=</span> <span class="mi">0</span>
@@ -815,7 +831,7 @@
     <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;node_ur5_2_place&#39;</span><span class="p">)</span>
 
     <span class="c1"># Wait for models to spawn in gazebo</span>
-    <span class="k">while</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="k">while</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
         <span class="k">continue</span>
 
     <span class="c1"># Initialize an object of type Ur5Moveit to control ur5_2</span>
@@ -829,7 +845,7 @@
     <span class="n">action_client</span> <span class="o">=</span> <span class="n">RosIotBridgeActionClient</span><span class="p">()</span>
 
     <span class="c1"># Subscribe topic to get data of incoming package</span>
-    <span class="n">rospy</span><span class="o">.</span><span class="n">Subscriber</span><span class="p">(</span><span class="s2">&quot;eyrc/ur5_2_place/pkg&quot;</span><span class="p">,</span>      <span class="c1"># Ros topic to subscribe</span>
+    <span class="n">rospy</span><span class="o">.</span><span class="n">Subscriber</span><span class="p">(</span><span class="s2">&quot;eyrc/vb/dispatched_pkg&quot;</span><span class="p">,</span>      <span class="c1"># Ros topic to subscribe</span>
                      <span class="n">DispatchedPackage</span><span class="p">,</span>           <span class="c1"># Message type</span>
                      <span class="n">dispatched_pkg_callback</span><span class="p">,</span>     <span class="c1"># Callback function name</span>
                      <span class="p">(</span><span class="n">ur5_2</span><span class="p">,</span> <span class="n">order</span><span class="p">))</span>              <span class="c1"># Arguments to pass to callback function</span>
@@ -857,22 +873,23 @@
         <span class="c1"># If a package is coming</span>
         <span class="k">if</span> <span class="nb">bool</span><span class="p">(</span><span class="n">ur5_2</span><span class="o">.</span><span class="n">orders_list</span><span class="p">):</span>
 
-            <span class="c1"># Check if arm can reach to home position #1 before next package arrives there</span>
-            <span class="n">go_to_correct_home_position</span><span class="p">(</span><span class="n">prev_bin</span><span class="p">,</span> <span class="n">ur5_2</span><span class="p">)</span>
-
             <span class="c1"># Get the colour of the incoming package</span>
             <span class="n">current_pkg_colour</span> <span class="o">=</span> <span class="n">ur5_2</span><span class="o">.</span><span class="n">orders_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">colour</span>
 
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Colour: &quot;</span><span class="p">,</span> <span class="n">current_pkg_colour</span><span class="p">)</span>
 
+            <span class="c1"># Find the appropriate home position to go</span>
+            <span class="n">appropriate_home_pose</span> <span class="o">=</span> <span class="n">find_appropriate_home_position</span><span class="p">(</span><span class="n">current_pkg_colour</span><span class="p">,</span>
+                                                                   <span class="n">prev_bin</span><span class="p">,</span>
+                                                                   <span class="n">ur5_2</span><span class="p">)</span>
+
+            <span class="c1"># Go to the appropriate home position</span>
+            <span class="n">go_to_home_position</span><span class="p">(</span><span class="n">appropriate_home_pose</span><span class="p">,</span> <span class="n">current_pkg_colour</span><span class="p">,</span> <span class="n">prev_bin</span><span class="p">,</span> <span class="n">ur5_2</span><span class="p">)</span>
+
             <span class="c1"># Assign colour of the bin to drop the package in</span>
             <span class="n">ur5_2</span><span class="o">.</span><span class="n">next_bin</span> <span class="o">=</span> <span class="n">current_pkg_colour</span>
 
-            <span class="c1"># Assign the correct file name of the trajectory to be played</span>
-            <span class="k">if</span> <span class="n">ur5_2</span><span class="o">.</span><span class="n">home</span> <span class="o">==</span> <span class="s1">&#39;home1&#39;</span><span class="p">:</span>
-                <span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;home1_to_&#39;</span> <span class="o">+</span> <span class="n">current_pkg_colour</span> <span class="o">+</span> <span class="s1">&#39;_bin.yaml&#39;</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;home2_to_&#39;</span> <span class="o">+</span> <span class="n">current_pkg_colour</span> <span class="o">+</span> <span class="s1">&#39;_bin.yaml&#39;</span>
+            <span class="n">file_name</span> <span class="o">=</span> <span class="n">ur5_2</span><span class="o">.</span><span class="n">home</span> <span class="o">+</span> <span class="s1">&#39;_to_&#39;</span> <span class="o">+</span> <span class="n">current_pkg_colour</span> <span class="o">+</span> <span class="s1">&#39;_bin.yaml&#39;</span>
 
             <span class="c1"># Wait for the package to come at the right position to be picked up</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Waiting&quot;</span><span class="p">)</span>
@@ -891,6 +908,7 @@
             <span class="n">ur5_2</span><span class="o">.</span><span class="n">home_position_updated</span> <span class="o">=</span> <span class="kc">False</span>
 
             <span class="c1"># start the conveyor belt again at full speed after picking the package</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting Conveyor belt&quot;</span><span class="p">)</span>
             <span class="n">start_conveyor_belt</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 
             <span class="c1"># Play the saved trajectory to drop package in the respective bin</span>
@@ -905,7 +923,7 @@
 
             <span class="n">prev_bin</span> <span class="o">=</span> <span class="n">ur5_2</span><span class="o">.</span><span class="n">next_bin</span>
 
-            <span class="c1"># Calculate the time lapsed till the package dropped by the ur5_1</span>
+            <span class="c1"># Calculate the time lapsed since the package dropped by the ur5_1 arm</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ur5_2</span><span class="o">.</span><span class="n">orders_list</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="n">current_time</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span>
                 <span class="n">ur5_2</span><span class="o">.</span><span class="n">time_lapsed_since_dispatch</span> <span class="o">=</span> <span class="n">current_time</span> <span class="o">-</span> <span class="n">ur5_2</span><span class="o">.</span><span class="n">orders_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">dispatch_time</span>
@@ -918,10 +936,7 @@
             <span class="n">ur5_2</span><span class="o">.</span><span class="n">pkg_detected</span> <span class="o">=</span> <span class="kc">False</span>
             <span class="n">ur5_2</span><span class="o">.</span><span class="n">pkg_not_pickable</span> <span class="o">=</span> <span class="kc">True</span>
 
-            <span class="n">ur5_2</span><span class="o">.</span><span class="n">orders_list</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-
-    <span class="c1"># print(&quot;Final Time: &quot;, final_time + 0.389)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Drop time list: &quot;</span><span class="p">,</span> <span class="n">orders_drop_time_list</span><span class="p">)</span></div>
+            <span class="n">ur5_2</span><span class="o">.</span><span class="n">orders_list</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span></div>
 
 
 <span class="c1"># Incoming package callback</span>
@@ -977,14 +992,19 @@
             <span class="c1"># If home position is updated and a package is found under logical camera</span>
             <span class="k">if</span> <span class="p">(</span><span class="n">ur5_2</span><span class="o">.</span><span class="n">home_position_updated</span> <span class="ow">and</span>
                     <span class="n">obj</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s2">&quot;packagen&quot;</span> <span class="o">+</span> <span class="n">ur5_2</span><span class="o">.</span><span class="n">orders_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="p">):</span>
-                <span class="c1"># Check if arm can reach to home position #1 before next package arrives there</span>
-                <span class="k">if</span> <span class="n">ur5_2</span><span class="o">.</span><span class="n">home</span> <span class="o">==</span> <span class="s1">&#39;home1&#39;</span> <span class="ow">and</span> <span class="n">obj</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
+
+                <span class="k">if</span> <span class="n">ur5_2</span><span class="o">.</span><span class="n">home</span> <span class="o">==</span> <span class="s1">&#39;home_1&#39;</span> <span class="ow">and</span> <span class="n">obj</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
                     <span class="k">if</span> <span class="n">ur5_2</span><span class="o">.</span><span class="n">pkg_detected</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
                         <span class="n">stop_conveyor_belt</span><span class="p">()</span>
                         <span class="n">ur5_2</span><span class="o">.</span><span class="n">pkg_detected</span> <span class="o">=</span> <span class="kc">True</span>
                         <span class="n">ur5_2</span><span class="o">.</span><span class="n">pkg_not_pickable</span> <span class="o">=</span> <span class="kc">False</span>
-                <span class="k">else</span><span class="p">:</span>
+                <span class="k">elif</span> <span class="n">ur5_2</span><span class="o">.</span><span class="n">home</span> <span class="o">==</span> <span class="s1">&#39;home_2&#39;</span><span class="p">:</span>
                     <span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="mf">0.06</span> <span class="ow">and</span> <span class="n">ur5_2</span><span class="o">.</span><span class="n">pkg_detected</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+                        <span class="n">stop_conveyor_belt</span><span class="p">()</span>
+                        <span class="n">ur5_2</span><span class="o">.</span><span class="n">pkg_detected</span> <span class="o">=</span> <span class="kc">True</span>
+                        <span class="n">ur5_2</span><span class="o">.</span><span class="n">pkg_not_pickable</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">elif</span> <span class="n">ur5_2</span><span class="o">.</span><span class="n">home</span> <span class="o">==</span> <span class="s1">&#39;home_3&#39;</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">0.22</span> <span class="ow">and</span> <span class="n">ur5_2</span><span class="o">.</span><span class="n">pkg_detected</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
                         <span class="n">stop_conveyor_belt</span><span class="p">()</span>
                         <span class="n">ur5_2</span><span class="o">.</span><span class="n">pkg_detected</span> <span class="o">=</span> <span class="kc">True</span>
                         <span class="n">ur5_2</span><span class="o">.</span><span class="n">pkg_not_pickable</span> <span class="o">=</span> <span class="kc">False</span></div>
@@ -1038,7 +1058,11 @@
                   <span class="s2">&quot;Shipped Date and Time&quot;</span><span class="p">:</span> <span class="n">str_time</span><span class="p">,</span>
                   <span class="s2">&quot;Estimated Time of Delivery&quot;</span><span class="p">:</span> <span class="n">estimated_date_of_delivery</span><span class="p">}</span>
 
-    <span class="n">action_client</span><span class="o">.</span><span class="n">send_goal</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">,</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="s2">&quot;NA&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">parameters</span><span class="p">))</span></div>
+    <span class="c1"># Send data to our spreadsheet</span>
+    <span class="n">action_client</span><span class="o">.</span><span class="n">send_goal</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">,</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="s2">&quot;NA&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">parameters</span><span class="p">))</span>
+
+    <span class="c1"># Send data to eyantra&#39;s spreadsheet</span>
+    <span class="n">action_client</span><span class="o">.</span><span class="n">send_goal</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">,</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="s2">&quot;eyantra&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">parameters</span><span class="p">))</span></div>
 
 
 <div class="viewcode-block" id="start_conveyor_belt"><a class="viewcode-back" href="../rst/pkg_task5/scripts/node_ur5_2_place.html#node_ur5_2_place.start_conveyor_belt">[docs]</a><span class="k">def</span> <span class="nf">start_conveyor_belt</span><span class="p">(</span><span class="n">power</span><span class="p">):</span>
@@ -1083,15 +1107,15 @@
     <span class="c1"># Home position #1</span>
     <span class="n">ur5_2_home1</span> <span class="o">=</span> <span class="p">[</span><span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="o">-</span><span class="mi">29</span><span class="p">),</span>
                    <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="o">-</span><span class="mi">139</span><span class="p">),</span>
-                   <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="o">-</span><span class="mi">59</span><span class="p">),</span>
-                   <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="o">-</span><span class="mi">72</span><span class="p">),</span>
+                   <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="o">-</span><span class="mi">60</span><span class="p">),</span>
+                   <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="o">-</span><span class="mi">71</span><span class="p">),</span>
                    <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">90</span><span class="p">),</span>
                    <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="o">-</span><span class="mi">32</span><span class="p">)]</span>
 
     <span class="n">ur5_2</span><span class="o">.</span><span class="n">hard_set_joint_angles</span><span class="p">(</span><span class="n">ur5_2_home1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="go_to_correct_home_position"><a class="viewcode-back" href="../rst/pkg_task5/scripts/node_ur5_2_place.html#node_ur5_2_place.go_to_correct_home_position">[docs]</a><span class="k">def</span> <span class="nf">go_to_correct_home_position</span><span class="p">(</span><span class="n">prev_bin</span><span class="p">,</span> <span class="n">ur5_2</span><span class="p">):</span>
+<div class="viewcode-block" id="find_appropriate_home_position"><a class="viewcode-back" href="../rst/pkg_task5/scripts/node_ur5_2_place.html#node_ur5_2_place.find_appropriate_home_position">[docs]</a><span class="k">def</span> <span class="nf">find_appropriate_home_position</span><span class="p">(</span><span class="n">current_pkg_color</span><span class="p">,</span> <span class="n">prev_bin</span><span class="p">,</span> <span class="n">ur5_2</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Move the UR5_2 arm to correct position over conveyor belt so that conveyor belt</span>
 <span class="sd">    stays on for most of the time and need to stop it only momentarily</span>
@@ -1101,47 +1125,87 @@
 <span class="sd">    determine whether the arm can return to home position #1 before package reaches there. if not,</span>
 <span class="sd">    then arm will be moved to home position #2.</span>
 
+<span class="sd">    :param current_pkg_color:  Colour of the next package coming on conveyor belt</span>
+<span class="sd">    :type current_pkg_color: str</span>
 <span class="sd">    :param prev_bin: Colour of bin from where it will go to home position</span>
 <span class="sd">    :type prev_bin: str</span>
 <span class="sd">    :param ur5_2: Ur5Moveit object to control UR5_2 arm</span>
 <span class="sd">    :type ur5_2: Object of class Ur5Moveit</span>
 <span class="sd">    :return: None</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># Home position #1</span>
-    <span class="n">ur5_2_home1</span> <span class="o">=</span> <span class="p">[</span><span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="o">-</span><span class="mi">29</span><span class="p">),</span>
-                   <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="o">-</span><span class="mi">139</span><span class="p">),</span>
-                   <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="o">-</span><span class="mi">59</span><span class="p">),</span>
-                   <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="o">-</span><span class="mi">72</span><span class="p">),</span>
-                   <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">90</span><span class="p">),</span>
-                   <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="o">-</span><span class="mi">32</span><span class="p">)]</span>
 
-    <span class="c1"># Home position #1</span>
-    <span class="n">ur5_2_home2</span> <span class="o">=</span> <span class="p">[</span><span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span>
-                   <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="o">-</span><span class="mi">119</span><span class="p">),</span>
-                   <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="o">-</span><span class="mi">92</span><span class="p">),</span>
-                   <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="o">-</span><span class="mi">57</span><span class="p">),</span>
-                   <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">90</span><span class="p">),</span>
-                   <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">)]</span>
+    <span class="n">appropriate_home_pose</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 
-    <span class="n">home1_possible</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">prev_bin</span> <span class="o">==</span> <span class="s1">&#39;red&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">current_pkg_color</span> <span class="o">==</span> <span class="s1">&#39;red&#39;</span> <span class="ow">or</span> <span class="n">current_pkg_color</span> <span class="o">==</span> <span class="s1">&#39;yellow&#39;</span><span class="p">)</span> <span class="ow">and</span> \
+                <span class="n">ur5_2</span><span class="o">.</span><span class="n">time_lapsed_since_dispatch</span> <span class="o">&lt;</span> <span class="mf">5.3</span><span class="p">:</span>
+            <span class="n">appropriate_home_pose</span> <span class="o">=</span> <span class="s1">&#39;home_1&#39;</span>
+        <span class="k">elif</span> <span class="n">current_pkg_color</span> <span class="o">==</span> <span class="s1">&#39;green&#39;</span><span class="p">:</span>
+            <span class="n">appropriate_home_pose</span> <span class="o">=</span> <span class="s1">&#39;home_3&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">appropriate_home_pose</span> <span class="o">=</span> <span class="s1">&#39;home_2&#39;</span>
 
-    <span class="k">if</span> <span class="n">prev_bin</span> <span class="o">==</span> <span class="s1">&#39;red&#39;</span> <span class="ow">and</span> <span class="n">ur5_2</span><span class="o">.</span><span class="n">time_lapsed_since_dispatch</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
-        <span class="n">home1_possible</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="k">elif</span> <span class="n">prev_bin</span> <span class="o">==</span> <span class="s1">&#39;yellow&#39;</span> <span class="ow">and</span> <span class="n">ur5_2</span><span class="o">.</span><span class="n">time_lapsed_since_dispatch</span> <span class="o">&lt;</span> <span class="mf">2.9</span><span class="p">:</span>
-        <span class="n">home1_possible</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="k">elif</span> <span class="n">prev_bin</span> <span class="o">==</span> <span class="s1">&#39;green&#39;</span> <span class="ow">and</span> <span class="n">ur5_2</span><span class="o">.</span><span class="n">time_lapsed_since_dispatch</span> <span class="o">&lt;</span> <span class="mf">3.7</span><span class="p">:</span>
-        <span class="n">home1_possible</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">elif</span> <span class="n">prev_bin</span> <span class="o">==</span> <span class="s1">&#39;yellow&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">current_pkg_color</span> <span class="o">==</span> <span class="s1">&#39;red&#39;</span> <span class="ow">or</span> <span class="n">current_pkg_color</span> <span class="o">==</span> <span class="s1">&#39;yellow&#39;</span><span class="p">)</span> <span class="ow">and</span> \
+                <span class="n">ur5_2</span><span class="o">.</span><span class="n">time_lapsed_since_dispatch</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="n">appropriate_home_pose</span> <span class="o">=</span> <span class="s1">&#39;home_1&#39;</span>
+        <span class="k">elif</span> <span class="n">current_pkg_color</span> <span class="o">==</span> <span class="s1">&#39;green&#39;</span><span class="p">:</span>
+            <span class="n">appropriate_home_pose</span> <span class="o">=</span> <span class="s1">&#39;home_3&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">appropriate_home_pose</span> <span class="o">=</span> <span class="s1">&#39;home_2&#39;</span>
 
-    <span class="k">if</span> <span class="n">home1_possible</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">prev_bin</span> <span class="o">==</span> <span class="s1">&#39;green&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">current_pkg_color</span> <span class="o">==</span> <span class="s1">&#39;red&#39;</span> <span class="ow">or</span> <span class="n">current_pkg_color</span> <span class="o">==</span> <span class="s1">&#39;yellow&#39;</span><span class="p">)</span> <span class="ow">and</span> \
+                <span class="n">ur5_2</span><span class="o">.</span><span class="n">time_lapsed_since_dispatch</span> <span class="o">&lt;</span> <span class="mf">4.1</span><span class="p">:</span>
+            <span class="n">appropriate_home_pose</span> <span class="o">=</span> <span class="s1">&#39;home_1&#39;</span>
+        <span class="k">elif</span> <span class="n">current_pkg_color</span> <span class="o">==</span> <span class="s1">&#39;green&#39;</span><span class="p">:</span>
+            <span class="n">appropriate_home_pose</span> <span class="o">=</span> <span class="s1">&#39;home_3&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">appropriate_home_pose</span> <span class="o">=</span> <span class="s1">&#39;home_2&#39;</span>
+
+    <span class="k">return</span> <span class="n">appropriate_home_pose</span></div>
+
+
+<div class="viewcode-block" id="go_to_home_position"><a class="viewcode-back" href="../rst/pkg_task5/scripts/node_ur5_2_place.html#node_ur5_2_place.go_to_home_position">[docs]</a><span class="k">def</span> <span class="nf">go_to_home_position</span><span class="p">(</span><span class="n">appropriate_home_pose</span><span class="p">,</span> <span class="n">current_pkg_color</span><span class="p">,</span> <span class="n">prev_bin</span><span class="p">,</span> <span class="n">ur5_2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Move the UR5#2 arm to the appropriate home position to wait for the next package.</span>
+
+<span class="sd">    :param appropriate_home_pose: Home pose to go to</span>
+<span class="sd">    :type appropriate_home_pose: str</span>
+<span class="sd">    :param current_pkg_color: Colour of the package coming on the conveyor belt</span>
+<span class="sd">    :type current_pkg_color: str</span>
+<span class="sd">    :param prev_bin: Colour of the bin in which the last package was dropped</span>
+<span class="sd">    :type prev_bin: str</span>
+<span class="sd">    :param ur5_2: Object of class Ur5Moveit to control UR5#2 arm</span>
+<span class="sd">    :type ur5_2: Object of class Ur5Moveit.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">appropriate_home_pose</span> <span class="o">==</span> <span class="s1">&#39;home_1&#39;</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Home position #1&quot;</span><span class="p">)</span>
-        <span class="n">ur5_2</span><span class="o">.</span><span class="n">home</span> <span class="o">=</span> <span class="s1">&#39;home1&#39;</span>
+        <span class="n">ur5_2</span><span class="o">.</span><span class="n">home</span> <span class="o">=</span> <span class="s1">&#39;home_1&#39;</span>
         <span class="n">ur5_2</span><span class="o">.</span><span class="n">home_position_updated</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="n">ur5_2</span><span class="o">.</span><span class="n">hard_set_joint_angles</span><span class="p">(</span><span class="n">ur5_2_home1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ur5_2</span><span class="o">.</span><span class="n">hard_play_saved_trajectory</span><span class="p">(</span><span class="n">ur5_2</span><span class="o">.</span><span class="n">get_file_path</span><span class="p">(),</span> <span class="n">prev_bin</span> <span class="o">+</span> <span class="s1">&#39;_bin_to_home_1.yaml&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">appropriate_home_pose</span> <span class="o">==</span> <span class="s1">&#39;home_2&#39;</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Home position #2&quot;</span><span class="p">)</span>
-        <span class="n">ur5_2</span><span class="o">.</span><span class="n">home</span> <span class="o">=</span> <span class="s1">&#39;home2&#39;</span>
+        <span class="n">ur5_2</span><span class="o">.</span><span class="n">home</span> <span class="o">=</span> <span class="s1">&#39;home_2&#39;</span>
         <span class="n">ur5_2</span><span class="o">.</span><span class="n">home_position_updated</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="n">ur5_2</span><span class="o">.</span><span class="n">hard_set_joint_angles</span><span class="p">(</span><span class="n">ur5_2_home2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span></div>
+        <span class="n">ur5_2</span><span class="o">.</span><span class="n">hard_play_saved_trajectory</span><span class="p">(</span><span class="n">ur5_2</span><span class="o">.</span><span class="n">get_file_path</span><span class="p">(),</span> <span class="n">prev_bin</span> <span class="o">+</span> <span class="s1">&#39;_bin_to_home_2.yaml&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">appropriate_home_pose</span> <span class="o">==</span> <span class="s1">&#39;home_3&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Home position #3&quot;</span><span class="p">)</span>
+        <span class="n">ur5_2</span><span class="o">.</span><span class="n">home</span> <span class="o">=</span> <span class="s1">&#39;home_3&#39;</span>
+        <span class="n">ur5_2</span><span class="o">.</span><span class="n">home_position_updated</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">ur5_2</span><span class="o">.</span><span class="n">hard_play_saved_trajectory</span><span class="p">(</span><span class="n">ur5_2</span><span class="o">.</span><span class="n">get_file_path</span><span class="p">(),</span> <span class="n">prev_bin</span> <span class="o">+</span> <span class="s1">&#39;_bin_to_home_3.yaml&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">current_pkg_color</span> <span class="o">==</span> <span class="s1">&#39;green&#39;</span><span class="p">:</span>
+            <span class="n">ur5_2</span><span class="o">.</span><span class="n">home</span> <span class="o">=</span> <span class="s1">&#39;home_3&#39;</span>
+            <span class="n">ur5_2</span><span class="o">.</span><span class="n">home_position_updated</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">ur5_2</span><span class="o">.</span><span class="n">hard_play_saved_trajectory</span><span class="p">(</span><span class="n">ur5_2</span><span class="o">.</span><span class="n">get_file_path</span><span class="p">(),</span> <span class="s1">&#39;home_1_to_home_3.yaml&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ur5_2</span><span class="o">.</span><span class="n">home</span> <span class="o">=</span> <span class="s1">&#39;home_1&#39;</span>
+            <span class="n">ur5_2</span><span class="o">.</span><span class="n">home_position_updated</span> <span class="o">=</span> <span class="kc">True</span></div>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>

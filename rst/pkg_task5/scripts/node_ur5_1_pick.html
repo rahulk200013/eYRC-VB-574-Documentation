@@ -131,10 +131,18 @@
 <li class="toctree-l2"><a class="reference internal" href="../../implementation.html#qr-detection">4.3. QR Detection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../implementation.html#ros-iot-bridge-setup">4.4. Ros-IoT Bridge Setup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../implementation.html#order-handling">4.5. Order Handling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../implementation.html#picking-up-packages-from-shelf">4.6. Picking Up Packages From Shelf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../implementation.html#picking-up-packages-from-shelf">4.6. Picking Up Packages From Shelf</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../implementation.html#there-are-no-orders-to-process-for-now">4.6.1. There are no orders to process for now</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../implementation.html#there-are-orders-to-process">4.6.2. There are orders to process</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../implementation.html#placing-packages-in-the-bin">4.7. Placing Packages in the Bin</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../implementation.html#when-ur5-2-arm-is-free">4.7.1. When UR5#2 arm is free</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../implementation.html#when-ur5-2-arm-is-busy">4.7.2. When UR5#2 arm is busy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../implementation.html#deciding-position-to-pickup-the-package">4.7.1. Deciding position to pickup the package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../implementation.html#keeping-the-conveyor-belt-running">4.7.2. Keeping the Conveyor Belt running</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../implementation.html#when-ur5-2-arm-is-free">4.7.2.1. When UR5#2 arm is free</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../implementation.html#when-ur5-2-arm-is-busy">4.7.2.2. When UR5#2 arm is busy</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../implementation.html#dashboard">4.8. Dashboard</a><ul>
@@ -182,20 +190,28 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../YAML_files.html">5.1.4. YAML Files</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../config/saved_trajectories/home1_to_xxx_bin.html">5.1.4.1. home1_to_xxx_bin.yaml</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../config/saved_trajectories/home1_to_xxx_bin.html#description">5.1.4.1.1. Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../config/saved_trajectories/home_to_pkgnxx.html">5.1.4.1. home_to_pkgn<em>xx</em>.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../config/saved_trajectories/home_to_pkgnxx.html#description">5.1.4.1.1. Description</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../config/saved_trajectories/home2_to_xxx_bin.html">5.1.4.2. home2_to_xxx_bin.yaml</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../config/saved_trajectories/home2_to_xxx_bin.html#description">5.1.4.2.1. Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../config/saved_trajectories/pkgnxx_to_home.html">5.1.4.2. pkgn<em>xx</em>_to_home.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../config/saved_trajectories/pkgnxx_to_home.html#description">5.1.4.2.1. Description</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../config/saved_trajectories/home_to_pkgnxx.html">5.1.4.3. home_to_pkgn<em>xx</em>.yaml</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../config/saved_trajectories/home_to_pkgnxx.html#description">5.1.4.3.1. Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../config/saved_trajectories/home_to_waiting_pose_1.html">5.1.4.3. home_to_waiting_pose_1.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../config/saved_trajectories/home_to_waiting_pose_1.html#description">5.1.4.3.1. Description</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../config/saved_trajectories/pkgnxx_to_home.html">5.1.4.4. pkgn<em>xx</em>_to_home.yaml</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../config/saved_trajectories/pkgnxx_to_home.html#description">5.1.4.4.1. Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../config/saved_trajectories/waiting_pose_1_to_pkgnxx.html">5.1.4.4. waiting_pose_1_to_pkgn<em>xx</em>.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../config/saved_trajectories/waiting_pose_1_to_pkgnxx.html#description">5.1.4.4.1. Description</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../config/saved_trajectories/home_y_to_xxx_bin.html">5.1.4.5. home_y_to_xxx_bin.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../config/saved_trajectories/home_y_to_xxx_bin.html#description">5.1.4.5.1. Description</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../config/saved_trajectories/xxx_bin_to_home_y.html">5.1.4.6. xxx_bin_to_home_y.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../config/saved_trajectories/xxx_bin_to_home_y.html#description">5.1.4.6.1. Description</a></li>
 </ul>
 </li>
 </ul>
@@ -505,30 +521,6 @@ for proper interface of Ur5 arm with Gazebo, MoveIt! and RViz</p>
 </table>
 <p>ur5_1 = Ur5Moveit(‘ur5_1’)</p>
 <dl class="method">
-<dt id="node_ur5_1_pick.Ur5Moveit.attach_box">
-<code class="descname">attach_box</code><span class="sig-paren">(</span><em>box_name</em>, <em>timeout=4</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/node_ur5_1_pick.html#Ur5Moveit.attach_box"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#node_ur5_1_pick.Ur5Moveit.attach_box" title="Permalink to this definition">¶</a></dt>
-<dd><p>Attach box received in arguments to arm in RViz</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>box_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – name of box to attach</li>
-<li><strong>timeout</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – time(s) to wait for state update else return False</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Success Flag</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
 <dt id="node_ur5_1_pick.Ur5Moveit.attach_box_in_gazebo">
 <code class="descname">attach_box_in_gazebo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/node_ur5_1_pick.html#Ur5Moveit.attach_box_in_gazebo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#node_ur5_1_pick.Ur5Moveit.attach_box_in_gazebo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Activate vacuum gripper of arm in gazebo</p>
@@ -543,30 +535,6 @@ for proper interface of Ur5 arm with Gazebo, MoveIt! and RViz</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="node_ur5_1_pick.Ur5Moveit.detach_box">
-<code class="descname">detach_box</code><span class="sig-paren">(</span><em>box_name</em>, <em>timeout=4</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/node_ur5_1_pick.html#Ur5Moveit.detach_box"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#node_ur5_1_pick.Ur5Moveit.detach_box" title="Permalink to this definition">¶</a></dt>
-<dd><p>Detach box received in arguments to arm in RViz</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>box_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – name of box to detach</li>
-<li><strong>timeout</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – time(s) to wait for state update else return False</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Success Flag</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
 <dt id="node_ur5_1_pick.Ur5Moveit.detach_box_in_gazebo">
 <code class="descname">detach_box_in_gazebo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/node_ur5_1_pick.html#Ur5Moveit.detach_box_in_gazebo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#node_ur5_1_pick.Ur5Moveit.detach_box_in_gazebo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deactivate vacuum gripper of arm in gazebo</p>
@@ -575,45 +543,6 @@ for proper interface of Ur5 arm with Gazebo, MoveIt! and RViz</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="node_ur5_1_pick.Ur5Moveit.go_to_pose">
-<code class="descname">go_to_pose</code><span class="sig-paren">(</span><em>arg_pose</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/node_ur5_1_pick.html#Ur5Moveit.go_to_pose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#node_ur5_1_pick.Ur5Moveit.go_to_pose" title="Permalink to this definition">¶</a></dt>
-<dd><p>Make the vacuum gripper go to a certain position in space</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>arg_pose</strong> (<em>geometry_msgs.msg.Pose</em><em>(</em><em>)</em>) – goal pose of the vacuum gripper</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Success flag</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="node_ur5_1_pick.Ur5Moveit.hard_go_to_pose">
-<code class="descname">hard_go_to_pose</code><span class="sig-paren">(</span><em>arg_pose</em>, <em>arg_max_attempts</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/node_ur5_1_pick.html#Ur5Moveit.hard_go_to_pose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#node_ur5_1_pick.Ur5Moveit.hard_go_to_pose" title="Permalink to this definition">¶</a></dt>
-<dd><p>Try going to a pose again and until success or max attempts exhausted</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>arg_pose</strong> (<em>geometry_msgs.msg.Pose</em><em>(</em><em>)</em>) – goal pose of the vacuum gripper</li>
-<li><strong>arg_max_attempts</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – maximum number of attempts to try</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
-</td>
 </tr>
 </tbody>
 </table>
@@ -683,30 +612,6 @@ for proper interface of Ur5 arm with Gazebo, MoveIt! and RViz</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="node_ur5_1_pick.Ur5Moveit.remove_box">
-<code class="descname">remove_box</code><span class="sig-paren">(</span><em>box_name</em>, <em>timeout=4</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/node_ur5_1_pick.html#Ur5Moveit.remove_box"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#node_ur5_1_pick.Ur5Moveit.remove_box" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove box from planning scene in RViz</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>box_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – name of box to remove</li>
-<li><strong>timeout</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – time(s) to wait for state update else return False</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Success flag</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
 <dt id="node_ur5_1_pick.Ur5Moveit.set_joint_angles">
 <code class="descname">set_joint_angles</code><span class="sig-paren">(</span><em>arg_list_joint_angles</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/node_ur5_1_pick.html#Ur5Moveit.set_joint_angles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#node_ur5_1_pick.Ur5Moveit.set_joint_angles" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set joint angles of arm to pre defined joint angles</p>
@@ -724,48 +629,63 @@ for proper interface of Ur5 arm with Gazebo, MoveIt! and RViz</p>
 </table>
 </dd></dl>
 
-<dl class="method">
-<dt id="node_ur5_1_pick.Ur5Moveit.wait_for_state_update">
-<code class="descname">wait_for_state_update</code><span class="sig-paren">(</span><em>box_is_known=False</em>, <em>box_is_attached=False</em>, <em>timeout=4</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/node_ur5_1_pick.html#Ur5Moveit.wait_for_state_update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#node_ur5_1_pick.Ur5Moveit.wait_for_state_update" title="Permalink to this definition">¶</a></dt>
-<dd><p>Wait before all the required changes are made in the planning scene in RViz</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>box_is_known</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Flag whether the box is present in planning scene or not</li>
-<li><strong>box_is_attached</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – flag whether the box is attached to arm or not in RViz</li>
-<li><strong>timeout</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – time(s) to wait for the state to update</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">success flag</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
 </dd></dl>
 
 <dl class="function">
 <dt id="node_ur5_1_pick.find_correct_pkg_on_shelf">
-<code class="descclassname">node_ur5_1_pick.</code><code class="descname">find_correct_pkg_on_shelf</code><span class="sig-paren">(</span><em>camera</em>, <em>current_order</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/node_ur5_1_pick.html#find_correct_pkg_on_shelf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#node_ur5_1_pick.find_correct_pkg_on_shelf" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">node_ur5_1_pick.</code><code class="descname">find_correct_pkg_on_shelf</code><span class="sig-paren">(</span><em>camera</em>, <em>current_order</em>, <em>at_waiting_pose</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/node_ur5_1_pick.html#find_correct_pkg_on_shelf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#node_ur5_1_pick.find_correct_pkg_on_shelf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Function to find the correct package to be picked up from the shelf</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>camera</strong> (<em>Object of class ShelfCamera</em>) – object storing information packages present on the shelf</li>
+<li><strong>camera</strong> (<em>Object of class ShelfCamera which stores all info related to packages on shelf</em>) – object storing information packages present on the shelf</li>
 <li><strong>current_order</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – Details of order to find on the shelf</li>
+<li><strong>at_waiting_pose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – If UR5#1 arm is at waiting pose or not</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">row and column of the required package</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">row and column of the required package</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)">int</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="node_ur5_1_pick.go_to_home_position">
+<code class="descclassname">node_ur5_1_pick.</code><code class="descname">go_to_home_position</code><span class="sig-paren">(</span><em>ur5_1</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/node_ur5_1_pick.html#go_to_home_position"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#node_ur5_1_pick.go_to_home_position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move UR5#1 arm to its home position</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ur5_1</strong> (<em>Object of class Ur5Moveit</em>) – Object of class Ur5Moveit to control UR5#1 arm</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="node_ur5_1_pick.go_to_package">
+<code class="descclassname">node_ur5_1_pick.</code><code class="descname">go_to_package</code><span class="sig-paren">(</span><em>ur5_1</em>, <em>saved_trajectories</em>, <em>row</em>, <em>column</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/node_ur5_1_pick.html#go_to_package"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#node_ur5_1_pick.go_to_package" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move the UR5#1 arm to the package to pick it up</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ur5_1</strong> (<em>Object of class Ur5Moveit</em>) – Object of class Ur5Moveit to control UR5#1 arm</li>
+<li><strong>saved_trajectories</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – Dictionary of all the saved trajectories already loaded</li>
+<li><strong>row</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Row of the package to pick up</li>
+<li><strong>column</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Column of the package to pick up</li>
+</ul>
 </td>
 </tr>
 </tbody>
@@ -798,7 +718,7 @@ for proper interface of Ur5 arm with Gazebo, MoveIt! and RViz</p>
 
 <dl class="function">
 <dt id="node_ur5_1_pick.new_order_callback">
-<code class="descclassname">node_ur5_1_pick.</code><code class="descname">new_order_callback</code><span class="sig-paren">(</span><em>msg</em>, <em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/node_ur5_1_pick.html#new_order_callback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#node_ur5_1_pick.new_order_callback" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">node_ur5_1_pick.</code><code class="descname">new_order_callback</code><span class="sig-paren">(</span><em>msg</em>, <em>orders_list</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/node_ur5_1_pick.html#new_order_callback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#node_ur5_1_pick.new_order_callback" title="Permalink to this definition">¶</a></dt>
 <dd><p>Callback function called whenever a new order is placed</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -806,7 +726,7 @@ for proper interface of Ur5 arm with Gazebo, MoveIt! and RViz</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>msg</strong> (<em>json object</em>) – Order details</li>
-<li><strong>args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a>) – List of the current active orders</li>
+<li><strong>orders_list</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a>) – List of the current active orders</li>
 </ul>
 </td>
 </tr>
@@ -888,6 +808,27 @@ for proper interface of Ur5 arm with Gazebo, MoveIt! and RViz</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
 </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="node_ur5_1_pick.waiting_position_benefit">
+<code class="descclassname">node_ur5_1_pick.</code><code class="descname">waiting_position_benefit</code><span class="sig-paren">(</span><em>camera</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/node_ur5_1_pick.html#waiting_position_benefit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#node_ur5_1_pick.waiting_position_benefit" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is called to check if there will be any benefit in picking up package quickly
+from the shelf if we go to waiting position or not. It checks whether there are 3 types of
+packages(red, yellow, and green) are available in the shelf area covered by the waiting
+position or not.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>camera</strong> (<em>Object of class ShelfCamera which stores all info related to packages on shelf</em>) – object storing information packages present on the shelf</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Benefit or not to go and wait at home position</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></td>
 </tr>
 </tbody>
 </table>

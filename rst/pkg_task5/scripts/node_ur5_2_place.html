@@ -131,10 +131,18 @@
 <li class="toctree-l2"><a class="reference internal" href="../../implementation.html#qr-detection">4.3. QR Detection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../implementation.html#ros-iot-bridge-setup">4.4. Ros-IoT Bridge Setup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../implementation.html#order-handling">4.5. Order Handling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../implementation.html#picking-up-packages-from-shelf">4.6. Picking Up Packages From Shelf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../implementation.html#picking-up-packages-from-shelf">4.6. Picking Up Packages From Shelf</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../implementation.html#there-are-no-orders-to-process-for-now">4.6.1. There are no orders to process for now</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../implementation.html#there-are-orders-to-process">4.6.2. There are orders to process</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../implementation.html#placing-packages-in-the-bin">4.7. Placing Packages in the Bin</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../implementation.html#when-ur5-2-arm-is-free">4.7.1. When UR5#2 arm is free</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../implementation.html#when-ur5-2-arm-is-busy">4.7.2. When UR5#2 arm is busy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../implementation.html#deciding-position-to-pickup-the-package">4.7.1. Deciding position to pickup the package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../implementation.html#keeping-the-conveyor-belt-running">4.7.2. Keeping the Conveyor Belt running</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../implementation.html#when-ur5-2-arm-is-free">4.7.2.1. When UR5#2 arm is free</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../implementation.html#when-ur5-2-arm-is-busy">4.7.2.2. When UR5#2 arm is busy</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../implementation.html#dashboard">4.8. Dashboard</a><ul>
@@ -182,20 +190,28 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../YAML_files.html">5.1.4. YAML Files</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../config/saved_trajectories/home1_to_xxx_bin.html">5.1.4.1. home1_to_xxx_bin.yaml</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../config/saved_trajectories/home1_to_xxx_bin.html#description">5.1.4.1.1. Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../config/saved_trajectories/home_to_pkgnxx.html">5.1.4.1. home_to_pkgn<em>xx</em>.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../config/saved_trajectories/home_to_pkgnxx.html#description">5.1.4.1.1. Description</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../config/saved_trajectories/home2_to_xxx_bin.html">5.1.4.2. home2_to_xxx_bin.yaml</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../config/saved_trajectories/home2_to_xxx_bin.html#description">5.1.4.2.1. Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../config/saved_trajectories/pkgnxx_to_home.html">5.1.4.2. pkgn<em>xx</em>_to_home.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../config/saved_trajectories/pkgnxx_to_home.html#description">5.1.4.2.1. Description</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../config/saved_trajectories/home_to_pkgnxx.html">5.1.4.3. home_to_pkgn<em>xx</em>.yaml</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../config/saved_trajectories/home_to_pkgnxx.html#description">5.1.4.3.1. Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../config/saved_trajectories/home_to_waiting_pose_1.html">5.1.4.3. home_to_waiting_pose_1.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../config/saved_trajectories/home_to_waiting_pose_1.html#description">5.1.4.3.1. Description</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../config/saved_trajectories/pkgnxx_to_home.html">5.1.4.4. pkgn<em>xx</em>_to_home.yaml</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../config/saved_trajectories/pkgnxx_to_home.html#description">5.1.4.4.1. Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../config/saved_trajectories/waiting_pose_1_to_pkgnxx.html">5.1.4.4. waiting_pose_1_to_pkgn<em>xx</em>.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../config/saved_trajectories/waiting_pose_1_to_pkgnxx.html#description">5.1.4.4.1. Description</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../config/saved_trajectories/home_y_to_xxx_bin.html">5.1.4.5. home_y_to_xxx_bin.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../config/saved_trajectories/home_y_to_xxx_bin.html#description">5.1.4.5.1. Description</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../config/saved_trajectories/xxx_bin_to_home_y.html">5.1.4.6. xxx_bin_to_home_y.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../config/saved_trajectories/xxx_bin_to_home_y.html#description">5.1.4.6.1. Description</a></li>
 </ul>
 </li>
 </ul>
@@ -718,8 +734,8 @@ order details to orders_list and notify the details on the terminal as well</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="node_ur5_2_place.go_to_correct_home_position">
-<code class="descclassname">node_ur5_2_place.</code><code class="descname">go_to_correct_home_position</code><span class="sig-paren">(</span><em>prev_bin</em>, <em>ur5_2</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/node_ur5_2_place.html#go_to_correct_home_position"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#node_ur5_2_place.go_to_correct_home_position" title="Permalink to this definition">¶</a></dt>
+<dt id="node_ur5_2_place.find_appropriate_home_position">
+<code class="descclassname">node_ur5_2_place.</code><code class="descname">find_appropriate_home_position</code><span class="sig-paren">(</span><em>current_pkg_color</em>, <em>prev_bin</em>, <em>ur5_2</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/node_ur5_2_place.html#find_appropriate_home_position"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#node_ur5_2_place.find_appropriate_home_position" title="Permalink to this definition">¶</a></dt>
 <dd><p>Move the UR5_2 arm to correct position over conveyor belt so that conveyor belt
 stays on for most of the time and need to stop it only momentarily</p>
 <p>This is achieved by noting the time elapsed since the package is dispatched to
@@ -731,6 +747,7 @@ then arm will be moved to home position #2.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>current_pkg_color</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – Colour of the next package coming on conveyor belt</li>
 <li><strong>prev_bin</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – Colour of bin from where it will go to home position</li>
 <li><strong>ur5_2</strong> (<em>Object of class Ur5Moveit</em>) – Ur5Moveit object to control UR5_2 arm</li>
 </ul>
@@ -747,6 +764,26 @@ then arm will be moved to home position #2.</p>
 <dt id="node_ur5_2_place.go_to_home">
 <code class="descclassname">node_ur5_2_place.</code><code class="descname">go_to_home</code><span class="sig-paren">(</span><em>ur5_2</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/node_ur5_2_place.html#go_to_home"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#node_ur5_2_place.go_to_home" title="Permalink to this definition">¶</a></dt>
 <dd><p>Move UR5_2 arm to home position #1</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="node_ur5_2_place.go_to_home_position">
+<code class="descclassname">node_ur5_2_place.</code><code class="descname">go_to_home_position</code><span class="sig-paren">(</span><em>appropriate_home_pose</em>, <em>current_pkg_color</em>, <em>prev_bin</em>, <em>ur5_2</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/node_ur5_2_place.html#go_to_home_position"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#node_ur5_2_place.go_to_home_position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move the UR5#2 arm to the appropriate home position to wait for the next package.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>appropriate_home_pose</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – Home pose to go to</li>
+<li><strong>current_pkg_color</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – Colour of the package coming on the conveyor belt</li>
+<li><strong>prev_bin</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – Colour of the bin in which the last package was dropped</li>
+<li><strong>ur5_2</strong> (<em>Object of class Ur5Moveit.</em>) – Object of class Ur5Moveit to control UR5#2 arm</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">

@@ -129,10 +129,18 @@
 <li class="toctree-l2"><a class="reference internal" href="../rst/implementation.html#qr-detection">4.3. QR Detection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../rst/implementation.html#ros-iot-bridge-setup">4.4. Ros-IoT Bridge Setup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../rst/implementation.html#order-handling">4.5. Order Handling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../rst/implementation.html#picking-up-packages-from-shelf">4.6. Picking Up Packages From Shelf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rst/implementation.html#picking-up-packages-from-shelf">4.6. Picking Up Packages From Shelf</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../rst/implementation.html#there-are-no-orders-to-process-for-now">4.6.1. There are no orders to process for now</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rst/implementation.html#there-are-orders-to-process">4.6.2. There are orders to process</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../rst/implementation.html#placing-packages-in-the-bin">4.7. Placing Packages in the Bin</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../rst/implementation.html#when-ur5-2-arm-is-free">4.7.1. When UR5#2 arm is free</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../rst/implementation.html#when-ur5-2-arm-is-busy">4.7.2. When UR5#2 arm is busy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rst/implementation.html#deciding-position-to-pickup-the-package">4.7.1. Deciding position to pickup the package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rst/implementation.html#keeping-the-conveyor-belt-running">4.7.2. Keeping the Conveyor Belt running</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../rst/implementation.html#when-ur5-2-arm-is-free">4.7.2.1. When UR5#2 arm is free</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rst/implementation.html#when-ur5-2-arm-is-busy">4.7.2.2. When UR5#2 arm is busy</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../rst/implementation.html#dashboard">4.8. Dashboard</a><ul>
@@ -180,20 +188,28 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../rst/pkg_task5/YAML_files.html">5.1.4. YAML Files</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home1_to_xxx_bin.html">5.1.4.1. home1_to_xxx_bin.yaml</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home1_to_xxx_bin.html#description">5.1.4.1.1. Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home_to_pkgnxx.html">5.1.4.1. home_to_pkgn<em>xx</em>.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home_to_pkgnxx.html#description">5.1.4.1.1. Description</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home2_to_xxx_bin.html">5.1.4.2. home2_to_xxx_bin.yaml</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home2_to_xxx_bin.html#description">5.1.4.2.1. Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/pkgnxx_to_home.html">5.1.4.2. pkgn<em>xx</em>_to_home.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/pkgnxx_to_home.html#description">5.1.4.2.1. Description</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home_to_pkgnxx.html">5.1.4.3. home_to_pkgn<em>xx</em>.yaml</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home_to_pkgnxx.html#description">5.1.4.3.1. Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home_to_waiting_pose_1.html">5.1.4.3. home_to_waiting_pose_1.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home_to_waiting_pose_1.html#description">5.1.4.3.1. Description</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/pkgnxx_to_home.html">5.1.4.4. pkgn<em>xx</em>_to_home.yaml</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/pkgnxx_to_home.html#description">5.1.4.4.1. Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/waiting_pose_1_to_pkgnxx.html">5.1.4.4. waiting_pose_1_to_pkgn<em>xx</em>.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/waiting_pose_1_to_pkgnxx.html#description">5.1.4.4.1. Description</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home_y_to_xxx_bin.html">5.1.4.5. home_y_to_xxx_bin.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/home_y_to_xxx_bin.html#description">5.1.4.5.1. Description</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/xxx_bin_to_home_y.html">5.1.4.6. xxx_bin_to_home_y.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../rst/pkg_task5/config/saved_trajectories/xxx_bin_to_home_y.html#description">5.1.4.6.1. Description</a></li>
 </ul>
 </li>
 </ul>

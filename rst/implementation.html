@@ -131,10 +131,18 @@
 <li class="toctree-l2"><a class="reference internal" href="#qr-detection">4.3. QR Detection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ros-iot-bridge-setup">4.4. Ros-IoT Bridge Setup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#order-handling">4.5. Order Handling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#picking-up-packages-from-shelf">4.6. Picking Up Packages From Shelf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#picking-up-packages-from-shelf">4.6. Picking Up Packages From Shelf</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#there-are-no-orders-to-process-for-now">4.6.1. There are no orders to process for now</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#there-are-orders-to-process">4.6.2. There are orders to process</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#placing-packages-in-the-bin">4.7. Placing Packages in the Bin</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#when-ur5-2-arm-is-free">4.7.1. When UR5#2 arm is free</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#when-ur5-2-arm-is-busy">4.7.2. When UR5#2 arm is busy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deciding-position-to-pickup-the-package">4.7.1. Deciding position to pickup the package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#keeping-the-conveyor-belt-running">4.7.2. Keeping the Conveyor Belt running</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#when-ur5-2-arm-is-free">4.7.2.1. When UR5#2 arm is free</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#when-ur5-2-arm-is-busy">4.7.2.2. When UR5#2 arm is busy</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#dashboard">4.8. Dashboard</a><ul>
@@ -182,20 +190,28 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="pkg_task5/YAML_files.html">5.1.4. YAML Files</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="pkg_task5/config/saved_trajectories/home1_to_xxx_bin.html">5.1.4.1. home1_to_xxx_bin.yaml</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="pkg_task5/config/saved_trajectories/home1_to_xxx_bin.html#description">5.1.4.1.1. Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pkg_task5/config/saved_trajectories/home_to_pkgnxx.html">5.1.4.1. home_to_pkgn<em>xx</em>.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="pkg_task5/config/saved_trajectories/home_to_pkgnxx.html#description">5.1.4.1.1. Description</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="pkg_task5/config/saved_trajectories/home2_to_xxx_bin.html">5.1.4.2. home2_to_xxx_bin.yaml</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="pkg_task5/config/saved_trajectories/home2_to_xxx_bin.html#description">5.1.4.2.1. Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pkg_task5/config/saved_trajectories/pkgnxx_to_home.html">5.1.4.2. pkgn<em>xx</em>_to_home.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="pkg_task5/config/saved_trajectories/pkgnxx_to_home.html#description">5.1.4.2.1. Description</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="pkg_task5/config/saved_trajectories/home_to_pkgnxx.html">5.1.4.3. home_to_pkgn<em>xx</em>.yaml</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="pkg_task5/config/saved_trajectories/home_to_pkgnxx.html#description">5.1.4.3.1. Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pkg_task5/config/saved_trajectories/home_to_waiting_pose_1.html">5.1.4.3. home_to_waiting_pose_1.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="pkg_task5/config/saved_trajectories/home_to_waiting_pose_1.html#description">5.1.4.3.1. Description</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="pkg_task5/config/saved_trajectories/pkgnxx_to_home.html">5.1.4.4. pkgn<em>xx</em>_to_home.yaml</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="pkg_task5/config/saved_trajectories/pkgnxx_to_home.html#description">5.1.4.4.1. Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pkg_task5/config/saved_trajectories/waiting_pose_1_to_pkgnxx.html">5.1.4.4. waiting_pose_1_to_pkgn<em>xx</em>.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="pkg_task5/config/saved_trajectories/waiting_pose_1_to_pkgnxx.html#description">5.1.4.4.1. Description</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="pkg_task5/config/saved_trajectories/home_y_to_xxx_bin.html">5.1.4.5. home_y_to_xxx_bin.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="pkg_task5/config/saved_trajectories/home_y_to_xxx_bin.html#description">5.1.4.5.1. Description</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="pkg_task5/config/saved_trajectories/xxx_bin_to_home_y.html">5.1.4.6. xxx_bin_to_home_y.yaml</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="pkg_task5/config/saved_trajectories/xxx_bin_to_home_y.html#description">5.1.4.6.1. Description</a></li>
 </ul>
 </li>
 </ul>
@@ -382,11 +398,13 @@ It doesn’t matter whether which path the arm takes as long as it is not collid
 save the best trajectories possible.</p>
 <p>Since the solution should be dynamic, that is the arm should be able to pick packages from the shelf in any possible order. For that, we need to have a common starting and ending position of the arm. This is called a <strong>home position</strong>. For UR5#1, this is the home position:</p>
 <img alt="../_images/ur5_1_home.png" src="../_images/ur5_1_home.png" />
-<p>Similarly, there are two home positions for UR5#2. We will get into the details later.</p>
+<p>Similarly, there are three home positions for UR5#2. We will get into the details later.</p>
 <p><strong>Home Position #1</strong></p>
 <img alt="../_images/ur5_2_home1.png" src="../_images/ur5_2_home1.png" />
 <p><strong>Home Position #2</strong></p>
 <img alt="../_images/ur5_2_home2.png" src="../_images/ur5_2_home2.png" />
+<p><strong>Home Position #3</strong></p>
+<img alt="../_images/ur5_2_home3.png" src="../_images/ur5_2_home3.png" />
 <p>The joint angles of the home positions can be noted from the joint tab in RViz.</p>
 <div class="section" id="determining-execution-time">
 <h3>4.2.1. Determining Execution Time<a class="headerlink" href="#determining-execution-time" title="Permalink to this headline">¶</a></h3>
@@ -555,7 +573,7 @@ subscribe to this topic to receive the details of the new order placed.</p>
 <p>This job is handled by <a class="reference external" href="./pkg_task5/scripts/node_ur5_1_pick.html">node_ur5_1_pick</a>. This node subscribes to the ROS topic <em>‘eyrc/vb/orders’</em> where all the details of new orders are published. The order details are converted to dictionary from JSON formatted string first and then this dictionary is appended to a local list called
 <em>orders_list[]</em>.</p>
 <p>Initially, the UR5#1 arm is waiting at its home position. Now whenever a new order is placed, the details are appended to <em>orders_list[]</em>.
-This list is then sorted according to the priorities of order. Since the higher priority orders have the highest cost and the lowest priority package has the lowest cost, this
+This list is then sorted according to the priorities of their order. Since the higher priority orders have the highest cost and the lowest priority package has the lowest cost, this
 information is used to sort the list. This way the higher priority orders are at the top of the list and lower priority orders at the last.</p>
 <p>Now when UR5#1 arm will process the order which is at the top of this list or we can say the order at index value 0. Then a package of the same priority is searched
 in the shelf in the following order:</p>
@@ -563,7 +581,7 @@ in the shelf in the following order:</p>
 <span class="n">pkg_search_order</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">02</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">01</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">00</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>This is done to make the arm pick those packages first which takes the least time to pick and place. This order can be determined from the execution time of trajectories
+<p>This is done to make the arm pick those packages first, which takes the least time to pick and place. This order can be determined from the execution time of trajectories
 we saved before. This way we can process the orders as fast as possible.</p>
 <p>After the package has been placed on the conveyor belt, the same process is repeated to process the remaining orders. One thing which needs to be mentioned is that
 pick and place operation of UR5#1 arm and order handling is done asynchronously.</p>
@@ -571,65 +589,141 @@ pick and place operation of UR5#1 arm and order handling is done asynchronously.
 <a class="reference external" href="./pkg_task5/msg/DispatchedPackage.html">DispacthedPkg.msg</a>. This is done so that UR5#2 arm knows the details of the package coming towards it and be
 ready at the right location to pick it up. The details of the dispatched order are also pushed to the Dispatched Orders sheet. Using google’s app script, an email
 notification is also sent to the customer that their order has been dispatched.</p>
+<p>But since we will not be receiving orders all the time, there are two scenarios possible:</p>
+<ol class="arabic simple">
+<li>There are no orders to process for now</li>
+<li>There are orders to process</li>
+</ol>
+<p>Let’s see one by one what we will do in each case</p>
+<div class="section" id="there-are-no-orders-to-process-for-now">
+<h3>4.6.1. There are no orders to process for now<a class="headerlink" href="#there-are-no-orders-to-process-for-now" title="Permalink to this headline">¶</a></h3>
+<p>In this case the arm has to wait for the new orders to get placed. But waiting at the home position is not a great idea. What we can do is move our arm to such a position, from where it can reach to the packages more quickly. We call this position as <strong>waiting position</strong>. This is how it looks for UR5#1 arm:</p>
+<img alt="../_images/waiting_pose.png" src="../_images/waiting_pose.png" />
+<p>One important thing to note here is that, we can only reach the highlighted packages quickly from this waiting position.</p>
+<img alt="../_images/waiting_area.png" src="../_images/waiting_area.png" />
+<p>To reach other packages from the waiting position actually takes more time compared to going to these pacakges directly from the home position</p>
+<p>Therefore, we don’t go to this waiting position as soon as we have no more orders to process. There needs to be two conditions satisfied:</p>
+<ol class="arabic simple">
+<li>We have waited for 2 seconds at the home position for new orders</li>
+<li>There are at least one pacakge of each priority in the highlighted packages.</li>
+</ol>
+<p>If one of the condition is not satisfied, we will wait at the home position for the new orders.</p>
+<p>Second condition is necessary to make sure that we will definitely find the next order in the highlighted packages. Thus guaranteeing that our time will be saved if we go to this home position.</p>
+<p>This is the search order in which the packages will be searched:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Search order of packages while selecting the package to pick up from the waiting position</span>
+<span class="n">pkg_search_order</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="there-are-orders-to-process">
+<h3>4.6.2. There are orders to process<a class="headerlink" href="#there-are-orders-to-process" title="Permalink to this headline">¶</a></h3>
+<p>If we are continuosly getting new orders, we will go to the pacakges directly from the home position.</p>
+</div>
 </div>
 <div class="section" id="placing-packages-in-the-bin">
 <h2>4.7. Placing Packages in the Bin<a class="headerlink" href="#placing-packages-in-the-bin" title="Permalink to this headline">¶</a></h2>
 <p>This job is handled by <a class="reference external" href="./pkg_task5/scripts/node_ur5_2_place.html">node_ur5_2_place</a>.</p>
-<p>When the details of the dispatched order are received the robot can be in two states:</p>
+<p>Now here comes a part which is a little difficult to understand at first. So let’s understand it step by step.</p>
+<p>Before we continue, keep these two points in mind. The strategy to sort packages is based solely on these two points.</p>
 <ol class="arabic simple">
-<li>The UR5#2 arm is free.</li>
-<li>The UR5#2 arm is currently in the process of dropping a package in the bin.</li>
+<li>Conveyor belt is faster than the arm, i.e conveyor belt can move the package x distance in less time if arm was moving it for the same distance.</li>
+<li>To sort the packages as soon as possible, conveyor belt has to keep running for most of the time. We will explain the reason behind it in section <a class="reference external" href="implementation.html#when-ur5-2-arm-is-busy">4.7.2.2</a>.</li>
+</ol>
+<p>We will implement these points one by one. Let’s consider the first point.</p>
+<div class="section" id="deciding-position-to-pickup-the-package">
+<h3>4.7.1. Deciding position to pickup the package<a class="headerlink" href="#deciding-position-to-pickup-the-package" title="Permalink to this headline">¶</a></h3>
+<p>Since, the belt moves the packages at faster speed, the packages are picked up from a position near their corresponding bins so that the belt does the job of transporting the packages for as long as it can. After that UR5#2 arm takes over. For this reason, the red and yellow packages are picked up from home position #1 and the green packages are picked up from home position #3 as these positions are near to their corresponding bins.</p>
+<p>This was pretty straightforward and easy to understand. Now let’s move on to the second point.</p>
+</div>
+<div class="section" id="keeping-the-conveyor-belt-running">
+<h3>4.7.2. Keeping the Conveyor Belt running<a class="headerlink" href="#keeping-the-conveyor-belt-running" title="Permalink to this headline">¶</a></h3>
+<p>Now we will combine both the points, and decide a home position which fulfils both of these points.</p>
+<p>To implement this, we decide the right location for the package to pick it up so that belt has to stop only momentarily so that the arm can turn on its vacuum gripper while keeping in mind the first point as well. Let’s see how this is exactly implemented.</p>
+<p>When the details of the dispatched order are received by the UR5#2 arm, it can be in two states:</p>
+<ol class="arabic simple">
+<li>The UR5#2 arm is free and ready to pickup the next package.</li>
+<li>The UR5#2 arm is currently busy in the process of dropping a package in the bin.</li>
 </ol>
 <p>Let’s discuss what we will do in these situations one by one:</p>
 <div class="section" id="when-ur5-2-arm-is-free">
-<h3>4.7.1. When UR5#2 arm is free<a class="headerlink" href="#when-ur5-2-arm-is-free" title="Permalink to this headline">¶</a></h3>
-<p>In this case, we will move the UR5#2 arm to home position #1. The arm will now wait for the package to come to this location to pick it up.</p>
+<h4>4.7.2.1. When UR5#2 arm is free<a class="headerlink" href="#when-ur5-2-arm-is-free" title="Permalink to this headline">¶</a></h4>
+<p>In this case, we will move the UR5#2 arm to home position #1 if the next package is of either red or yellow colour. Otherwise if the colour of package is green we will move the arm to home position #3. The arm will now wait for the package to come to this location to pick it up.</p>
 </div>
 <div class="section" id="when-ur5-2-arm-is-busy">
-<h3>4.7.2. When UR5#2 arm is busy<a class="headerlink" href="#when-ur5-2-arm-is-busy" title="Permalink to this headline">¶</a></h3>
+<h4>4.7.2.2. When UR5#2 arm is busy<a class="headerlink" href="#when-ur5-2-arm-is-busy" title="Permalink to this headline">¶</a></h4>
 <p>Now in this case there are again two possibilities.</p>
 <ol class="arabic simple">
-<li>The arm can reach home position #1 before the new package arrives there after dropping the current package.</li>
+<li>The arm can reach home position #1 if the next package is of either red or yellow colour, before the new package arrives there after dropping the current package.</li>
 <li>The arm can not reach home position #1 before the new package arrives there after dropping the current package.</li>
 </ol>
 <p>But how do we even determine whether it will be able to reach or not? This is done like this.</p>
-<p>When the details of a dispatched package are received, this node notes the current sim time. Now when the arm drops the package it was busy with, in the bin, the sim time is noted again.
-The difference between both of these times tells us the time elapsed so far since the package was dispatched. Let’s call this difference <strong>time_elapsed_after_dispatch</strong>.</p>
-<p>Time taken by the package to get to the home position #1 is experimentally determined to be <strong>6.7 seconds</strong>.</p>
+<p>When the details of a dispatched package are received, UR5#2 node notes the current sim time. Now when the arm drops the package it was busy with, in the bin, the sim time is noted again.
+The difference between both of these times tells us the time elapsed so far since the package was dispatched. Let’s call this time difference <strong>time_elapsed_after_dispatch</strong>.</p>
+<p>Time taken by the package to get to the home position #1 from when it was dispatched is experimentally determined to be <strong>6.7 seconds</strong>.</p>
 <p>Now if we minus the <strong>time_elapsed_after_dispatch</strong> from <strong>6.7 seconds</strong>, we will get the time required by the package to reach home position #1 from the current location on the conveyor belt.</p>
 <p>From the saved trajectories, we already know the time it will take for the arm to reach home position #1 from the current bin. By comparing these two times, we
 can be sure whether the UR5#2 arm will be able to reach home position #1 before the package reaches there or not. If it can, the arm will go to home position #1 otherwise it will
 go to home position #2. It is observed that the arm can reach home position #2 every time before the package reaches there so no need to make similar decisions for this home position.</p>
+<p>In case the next package is of green colour, we will directly go to home position #3. We won’t condsider all these things in this case.</p>
+<p>This is the code which implements the same:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">go_to_home_1</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">go_to_home_2</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">go_to_home_3</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="k">if</span> <span class="n">prev_bin</span> <span class="o">==</span> <span class="s1">&#39;red&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">current_pkg_color</span> <span class="o">==</span> <span class="s1">&#39;red&#39;</span> <span class="ow">or</span> <span class="n">current_pkg_color</span> <span class="o">==</span> <span class="s1">&#39;yellow&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">ur5_2</span><span class="o">.</span><span class="n">time_lapsed_since_dispatch</span> <span class="o">&lt;</span> <span class="mf">5.3</span><span class="p">:</span>
+        <span class="n">go_to_home_1</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">elif</span> <span class="n">current_pkg_color</span> <span class="o">==</span> <span class="s1">&#39;green&#39;</span><span class="p">:</span>
+        <span class="n">go_to_home_3</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">go_to_home_2</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="k">elif</span> <span class="n">prev_bin</span> <span class="o">==</span> <span class="s1">&#39;yellow&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">current_pkg_color</span> <span class="o">==</span> <span class="s1">&#39;red&#39;</span> <span class="ow">or</span> <span class="n">current_pkg_color</span> <span class="o">==</span> <span class="s1">&#39;yellow&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">ur5_2</span><span class="o">.</span><span class="n">time_lapsed_since_dispatch</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="n">go_to_home_1</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">elif</span> <span class="n">current_pkg_color</span> <span class="o">==</span> <span class="s1">&#39;green&#39;</span><span class="p">:</span>
+        <span class="n">go_to_home_3</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">go_to_home_2</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="k">elif</span> <span class="n">prev_bin</span> <span class="o">==</span> <span class="s1">&#39;green&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">current_pkg_color</span> <span class="o">==</span> <span class="s1">&#39;red&#39;</span> <span class="ow">or</span> <span class="n">current_pkg_color</span> <span class="o">==</span> <span class="s1">&#39;yellow&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">ur5_2</span><span class="o">.</span><span class="n">time_lapsed_since_dispatch</span> <span class="o">&lt;</span> <span class="mf">4.1</span><span class="p">:</span>
+        <span class="n">go_to_home_1</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">elif</span> <span class="n">current_pkg_color</span> <span class="o">==</span> <span class="s1">&#39;green&#39;</span><span class="p">:</span>
+        <span class="n">go_to_home_3</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">go_to_home_2</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
 <p>Now one may ask why so much hassle? Why can’t we just stop the belt if the package reaches before the arm?</p>
 <p>The answer is that if the belt is stopped then the package coming behind it will also be stopped which will then result in more time to ship that package. If we pick the package from home position #2 where the arm will reach before the package arrives there, the package coming from the back won’t have to stop. Therefore to keep the belt running continuously, this method is used.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Home position #1 is preferred over home position #2 because from there the packages can be picked as soon as possible so that the arm can get enough time to get ready to pick the next package.</p>
-</div>
 <p>Now after attaching the package to the vacuum gripper, a saved trajectory is played to drop that package in the correct bin. The Colour of the bin was determined from the details received
 earlier about the dispatched package from <a class="reference external" href="./pkg_task5/scripts/node_ur5_1_pick.html">node_ur5_1_pick</a>.</p>
 <p>After dropping the package, the ShippedOrders sheet is also updated by sending a goal to the Ros-IoT bridge action server through an action client. Using google’s app script, an email
 notification is also sent to the customer that their order has been shipped.</p>
 </div>
 </div>
+</div>
 <div class="section" id="dashboard">
 <h2>4.8. Dashboard<a class="headerlink" href="#dashboard" title="Permalink to this headline">¶</a></h2>
 <p>A dashboard is necessary to provide at-a-glance views of key performance indicators. This is how the dashboard looks like:</p>
-<p>You can access the dashboard from this link.</p>
+<img alt="../_images/dashboard.png" src="../_images/dashboard.png" />
+<p>You can access the dashboard from this <a class="reference external" href="https://rahulk200013.github.io/eYRC-VB-0574-Dashboard/">link</a>.</p>
 <p>In the dashboard, the following details are shown:</p>
 <div class="section" id="map">
 <h3>4.8.1. Map<a class="headerlink" href="#map" title="Permalink to this headline">¶</a></h3>
-<p>In the map, the location of the orders is shown with the help of a marker. Users can hover over these markers to see the details and status of the order. This map is updated every 1 second.</p>
+<p>In the map, the location of the orders is shown with the help of a marker. Users can hover over these markers to see the details and status of the order. The user is also provided with a search bar to find locations quickly. It will automatically zoom to the searched location. User is also provided with a functionality to search an order in the map using its order id. At the top left corner, there are 3 buttons available by which the user can zoom in, zoom out and reset the map to default view. This map is updated every 1 second.</p>
 <img alt="../_images/map.png" src="../_images/map.png" />
 <p>As you can see there are three types of markers.</p>
-<p>Red is when the order is placed.</p>
-<p>Yellow when the order is dispatched.</p>
-<p>Green when the order is shipped.</p>
-<p>For making this map, <a class="reference external" href="https://leafletjs.com/">Leaflet</a> is used.</p>
+<p><span style = "color: #ff3300; font-weight = bold">Red</span> is when the order is placed.<br>
+
+<span style = "color: yellow; font-weight = bold">Yellow</span> when the order is dispatched.<br>
+
+<span style = "color: #00ff00; font-weight = bold">Green</span> when the order is shipped.</p><p>For making this map, <a class="reference external" href="https://leafletjs.com/">Leaflet</a> is used.</p>
 </div>
 <div class="section" id="table">
 <h3>4.8.2. Table<a class="headerlink" href="#table" title="Permalink to this headline">¶</a></h3>
-<p>This table summarizes all the details of an order. The table can be sorted by clicking the column header. This table is also refreshed every 1 second.</p>
+<p>This table summarizes all the details of an order. The table can be sorted by clicking the column header. At the bottom of table, user is provided with quick export options like PDF, CSV, Excel, Print and Copy to share the data to people who don’t have access to the dashboard. This table is also refreshed every 1 second.</p>
 <img alt="../_images/table.png" src="../_images/table.png" />
 <p>To make this table, the <a class="reference external" href="https://www.datatables.net/">DataTables</a> jQuery plugin is used.</p>
 </div>
@@ -637,8 +731,10 @@ notification is also sent to the customer that their order has been shipped.</p>
 <h3>4.8.3. Bar Graph<a class="headerlink" href="#bar-graph" title="Permalink to this headline">¶</a></h3>
 <p>This graph shows the time taken for the order to get shipped from when the order was placed. Medicines are shown with a red bar, Food with a yellow bar
 and Clothes are shown with a green bar.</p>
-<img alt="../_images/bar_graph.png" src="../_images/bar_graph.png" />
-<p>This table is linked with the table we have made. Therefore, whatever changes we make to the table like sorting, search, etc. are also reflected in the bar graph for a better user experience.</p>
+<img alt="../_images/graph_hover.png" src="../_images/graph_hover.png" />
+<p>This table is linked with the table.. Therefore, whatever changes we make to the table like sorting, search, etc. are also reflected in the bar graph for a better user experience. Similar to the table, here also user can hover over the columns to see the information regarding that order.</p>
+<p>In the bar graph also, quick export options are provided to the user to share data.</p>
+<img alt="../_images/graph_menu.png" src="../_images/graph_menu.png" />
 <p>To make this bar graph, the <a class="reference external" href="https://www.highcharts.com/">HighCharts</a> jQuery plugin is used.</p>
 </div>
 </div>
