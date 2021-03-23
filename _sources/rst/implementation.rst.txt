@@ -1,5 +1,6 @@
 
 
+
 Implementation
 ==============
 
@@ -66,7 +67,7 @@ Since the solution should be dynamic, that is the arm should be able to pick pac
 
 .. image:: ../images/ur5_1_home.png
 
-Similarly, there are two home positions for UR5#2. We will get into the details later.
+Similarly, there are three home positions for UR5#2. We will get into the details later.
 
 **Home Position #1**
 
@@ -75,6 +76,10 @@ Similarly, there are two home positions for UR5#2. We will get into the details 
 **Home Position #2**
 
 .. image:: ../images/ur5_2_home2.png
+
+**Home Position #3**
+
+.. image:: ../images/ur5_2_home3.png
 
 The joint angles of the home positions can be noted from the joint tab in RViz.
 
@@ -222,7 +227,7 @@ This job is handled by `node_ur5_1_pick <./pkg_task5/scripts/node_ur5_1_pick.htm
 *orders_list[]*. 
 
 Initially, the UR5#1 arm is waiting at its home position. Now whenever a new order is placed, the details are appended to *orders_list[]*.
-This list is then sorted according to the priorities of order. Since the higher priority orders have the highest cost and the lowest priority package has the lowest cost, this
+This list is then sorted according to the priorities of their order. Since the higher priority orders have the highest cost and the lowest priority package has the lowest cost, this
 information is used to sort the list. This way the higher priority orders are at the top of the list and lower priority orders at the last.
 
 Now when UR5#1 arm will process the order which is at the top of this list or we can say the order at index value 0. Then a package of the same priority is searched
@@ -233,7 +238,7 @@ in the shelf in the following order:
    # Search order of packages while selecting the package to pick up
    pkg_search_order = [12, 02, 22, 01, 32, 11, 00, 20, 10, 21, 30]
 
-This is done to make the arm pick those packages first which takes the least time to pick and place. This order can be determined from the execution time of trajectories
+This is done to make the arm pick those packages first, which takes the least time to pick and place. This order can be determined from the execution time of trajectories
 we saved before. This way we can process the orders as fast as possible.
 
 After the package has been placed on the conveyor belt, the same process is repeated to process the remaining orders. One thing which needs to be mentioned is that
@@ -244,37 +249,102 @@ After placing the package on the conveyor belt, the details of the order are pub
 ready at the right location to pick it up. The details of the dispatched order are also pushed to the Dispatched Orders sheet. Using google's app script, an email
 notification is also sent to the customer that their order has been dispatched.
 
+But since we will not be receiving orders all the time, there are two scenarios possible:
+
+#. There are no orders to process for now
+#. There are orders to process
+
+Let's see one by one what we will do in each case
+
+There are no orders to process for now
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In this case the arm has to wait for the new orders to get placed. But waiting at the home position is not a great idea. What we can do is move our arm to such a position, from where it can reach to the packages more quickly. We call this position as **waiting position**. This is how it looks for UR5#1 arm:
+
+.. image:: ../images/waiting_pose.png
+
+One important thing to note here is that, we can only reach the highlighted packages quickly from this waiting position. 
+
+.. image:: ../images/waiting_area.png
+
+To reach other packages from the waiting position actually takes more time compared to going to these pacakges directly from the home position
+
+Therefore, we don't go to this waiting position as soon as we have no more orders to process. There needs to be two conditions satisfied:
+
+#. We have waited for 2 seconds at the home position for new orders
+#. There are at least one pacakge of each priority in the highlighted packages.
+
+If one of the condition is not satisfied, we will wait at the home position for the new orders.
+
+Second condition is necessary to make sure that we will definitely find the next order in the highlighted packages. Thus guaranteeing that our time will be saved if we go to this home position.
+
+This is the search order in which the packages will be searched:
+
+.. code-block:: python
+   
+   # Search order of packages while selecting the package to pick up from the waiting position
+   pkg_search_order = [12, 22, 2, 32, 20, 21]
+
+There are orders to process
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If we are continuosly getting new orders, we will go to the pacakges directly from the home position. 
+
+
 Placing Packages in the Bin
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This job is handled by `node_ur5_2_place <./pkg_task5/scripts/node_ur5_2_place.html>`_.
 
-When the details of the dispatched order are received the robot can be in two states:
+Now here comes a part which is a little difficult to understand at first. So let's understand it step by step.
 
-#. The UR5#2 arm is free.
-#. The UR5#2 arm is currently in the process of dropping a package in the bin.
+Before we continue, keep these two points in mind. The strategy to sort packages is based solely on these two points.
+
+#. Conveyor belt is faster than the arm, i.e conveyor belt can move the package x distance in less time if arm was moving it for the same distance.
+#. To sort the packages as soon as possible, conveyor belt has to keep running for most of the time. We will explain the reason behind it in section `4.7.2.2 <implementation.html#when-ur5-2-arm-is-busy>`_.
+
+We will implement these points one by one. Let's consider the first point.
+
+Deciding position to pickup the package
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Since, the belt moves the packages at faster speed, the packages are picked up from a position near their corresponding bins so that the belt does the job of transporting the packages for as long as it can. After that UR5#2 arm takes over. For this reason, the red and yellow packages are picked up from home position #1 and the green packages are picked up from home position #3 as these positions are near to their corresponding bins.
+
+This was pretty straightforward and easy to understand. Now let's move on to the second point.
+
+Keeping the Conveyor Belt running
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Now we will combine both the points, and decide a home position which fulfils both of these points.
+
+To implement this, we decide the right location for the package to pick it up so that belt has to stop only momentarily so that the arm can turn on its vacuum gripper while keeping in mind the first point as well. Let's see how this is exactly implemented.
+
+When the details of the dispatched order are received by the UR5#2 arm, it can be in two states:
+
+#. The UR5#2 arm is free and ready to pickup the next package.
+#. The UR5#2 arm is currently busy in the process of dropping a package in the bin.
 
 Let's discuss what we will do in these situations one by one:
 
 When UR5#2 arm is free
-^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""
 
-In this case, we will move the UR5#2 arm to home position #1. The arm will now wait for the package to come to this location to pick it up. 
+In this case, we will move the UR5#2 arm to home position #1 if the next package is of either red or yellow colour. Otherwise if the colour of package is green we will move the arm to home position #3. The arm will now wait for the package to come to this location to pick it up.
 
 When UR5#2 arm is busy
-^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""
 
 Now in this case there are again two possibilities. 
 
-#. The arm can reach home position #1 before the new package arrives there after dropping the current package.
+#. The arm can reach home position #1 if the next package is of either red or yellow colour, before the new package arrives there after dropping the current package.
 #. The arm can not reach home position #1 before the new package arrives there after dropping the current package.
 
 But how do we even determine whether it will be able to reach or not? This is done like this.
 
-When the details of a dispatched package are received, this node notes the current sim time. Now when the arm drops the package it was busy with, in the bin, the sim time is noted again.
-The difference between both of these times tells us the time elapsed so far since the package was dispatched. Let's call this difference **time_elapsed_after_dispatch**.
+When the details of a dispatched package are received, UR5#2 node notes the current sim time. Now when the arm drops the package it was busy with, in the bin, the sim time is noted again.
+The difference between both of these times tells us the time elapsed so far since the package was dispatched. Let's call this time difference **time_elapsed_after_dispatch**.
 
-Time taken by the package to get to the home position #1 is experimentally determined to be **6.7 seconds**.
+Time taken by the package to get to the home position #1 from when it was dispatched is experimentally determined to be **6.7 seconds**.
 
 Now if we minus the **time_elapsed_after_dispatch** from **6.7 seconds**, we will get the time required by the package to reach home position #1 from the current location on the conveyor belt.
 
@@ -282,12 +352,43 @@ From the saved trajectories, we already know the time it will take for the arm t
 can be sure whether the UR5#2 arm will be able to reach home position #1 before the package reaches there or not. If it can, the arm will go to home position #1 otherwise it will
 go to home position #2. It is observed that the arm can reach home position #2 every time before the package reaches there so no need to make similar decisions for this home position.
 
+In case the next package is of green colour, we will directly go to home position #3. We won't condsider all these things in this case.
+
+This is the code which implements the same:
+
+.. code-block:: python
+
+   go_to_home_1 = False
+   go_to_home_2 = False
+   go_to_home_3 = False
+
+   if prev_bin == 'red':
+       if (current_pkg_color == 'red' or current_pkg_color == 'yellow') and ur5_2.time_lapsed_since_dispatch < 5.3:
+           go_to_home_1 = True
+       elif current_pkg_color == 'green':
+           go_to_home_3 = True
+       else:
+           go_to_home_2 = True
+
+   elif prev_bin == 'yellow':
+       if (current_pkg_color == 'red' or current_pkg_color == 'yellow') and ur5_2.time_lapsed_since_dispatch < 4:
+           go_to_home_1 = True
+       elif current_pkg_color == 'green':
+           go_to_home_3 = True
+       else:
+           go_to_home_2 = True
+
+   elif prev_bin == 'green':
+       if (current_pkg_color == 'red' or current_pkg_color == 'yellow') and ur5_2.time_lapsed_since_dispatch < 4.1:
+           go_to_home_1 = True
+       elif current_pkg_color == 'green':
+           go_to_home_3 = True
+       else:
+           go_to_home_2 = True
+
 Now one may ask why so much hassle? Why can't we just stop the belt if the package reaches before the arm?
 
 The answer is that if the belt is stopped then the package coming behind it will also be stopped which will then result in more time to ship that package. If we pick the package from home position #2 where the arm will reach before the package arrives there, the package coming from the back won't have to stop. Therefore to keep the belt running continuously, this method is used.
-
-.. note::
-   Home position #1 is preferred over home position #2 because from there the packages can be picked as soon as possible so that the arm can get enough time to get ready to pick the next package.
 
 Now after attaching the package to the vacuum gripper, a saved trajectory is played to drop that package in the correct bin. The Colour of the bin was determined from the details received
 earlier about the dispatched package from `node_ur5_1_pick <./pkg_task5/scripts/node_ur5_1_pick.html>`_. 
@@ -300,33 +401,35 @@ Dashboard
 
 A dashboard is necessary to provide at-a-glance views of key performance indicators. This is how the dashboard looks like:
 
+.. image:: ../images/dashboard.png
 
-
-You can access the dashboard from this link.
+You can access the dashboard from this `link <https://rahulk200013.github.io/eYRC-VB-0574-Dashboard/>`_.
 
 In the dashboard, the following details are shown:
 
 Map
 ^^^
 
-In the map, the location of the orders is shown with the help of a marker. Users can hover over these markers to see the details and status of the order. This map is updated every 1 second.
+In the map, the location of the orders is shown with the help of a marker. Users can hover over these markers to see the details and status of the order. The user is also provided with a search bar to find locations quickly. It will automatically zoom to the searched location. User is also provided with a functionality to search an order in the map using its order id. At the top left corner, there are 3 buttons available by which the user can zoom in, zoom out and reset the map to default view. This map is updated every 1 second.
 
 .. image:: ../images/map.png
 
 As you can see there are three types of markers.
 
-Red is when the order is placed.
+.. raw:: html
 
-Yellow when the order is dispatched.
+   <p><span style = "color: #ff3300; font-weight = bold">Red</span> is when the order is placed.<br>
 
-Green when the order is shipped.
+   <span style = "color: yellow; font-weight = bold">Yellow</span> when the order is dispatched.<br>
+
+   <span style = "color: #00ff00; font-weight = bold">Green</span> when the order is shipped.</p>
 
 For making this map, `Leaflet <https://leafletjs.com/>`_ is used.
 
 Table
 ^^^^^
 
-This table summarizes all the details of an order. The table can be sorted by clicking the column header. This table is also refreshed every 1 second.
+This table summarizes all the details of an order. The table can be sorted by clicking the column header. At the bottom of table, user is provided with quick export options like PDF, CSV, Excel, Print and Copy to share the data to people who don't have access to the dashboard. This table is also refreshed every 1 second.
 
 .. image:: ../images/table.png
 
@@ -338,9 +441,13 @@ Bar Graph
 This graph shows the time taken for the order to get shipped from when the order was placed. Medicines are shown with a red bar, Food with a yellow bar
 and Clothes are shown with a green bar.
 
-.. image:: ../images/bar_graph.png
+.. image:: ../images/graph_hover.png
 
-This table is linked with the table we have made. Therefore, whatever changes we make to the table like sorting, search, etc. are also reflected in the bar graph for a better user experience.
+This table is linked with the table.. Therefore, whatever changes we make to the table like sorting, search, etc. are also reflected in the bar graph for a better user experience. Similar to the table, here also user can hover over the columns to see the information regarding that order.
+
+In the bar graph also, quick export options are provided to the user to share data.
+
+.. image:: ../images/graph_menu.png
 
 To make this bar graph, the `HighCharts <https://www.highcharts.com/>`_ jQuery plugin is used.
 

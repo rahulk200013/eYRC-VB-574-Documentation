@@ -28,13 +28,15 @@ Strategies used to save time
 Since shipping packages as soon as possible was the major aim, a lot of time and effort
 were put to find ways to save time. 
 
-#. Most of the time is taken by the trajectories to execute and therefore a system was developed which can save trajecories having the least execution time. 
+#. Most of the time is taken by the trajectories in planning and execution and therefore a system was developed which can save trajecories which takes the least time to execute. 
 
 #. A python script was written which planned 100+ tajectories and saved the one which has the least execution time.
 
-#. To save more time, the trajectories are loaded and stored at the start when the node initializes because loading trajectories aslo take 40-60 ms to load. 
+#. To save more time, the trajectories are loaded and stored at the start when the node initializes because loading trajectories also take 40-60 ms to load.
 
 #. In the final run, planning scenes from RViz were also removed as it was observed that it takes less time to execute trajectories without any planning scene.
+
+#. A waiting position for UR5#1 arm is used to reach packages quickly. 
 
 
 
@@ -45,7 +47,7 @@ Video Demonstration
 
 .. raw:: html
 
-   <iframe width="690" height="388" src="https://www.youtube.com/embed/pLcViO3jvJs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   <iframe width="690" height="388" src="https://www.youtube.com/embed/6PpVIDLgjls" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 |
 

@@ -1,0 +1,12 @@
+.. _home_to_waiting_pose_1:
+
+home_to_waiting_pose_1.yaml
+===========================
+|
+
+
+Description
+-----------
+
+Saved trajectory to go to the waiting position from home position for UR5#1 arm.
+

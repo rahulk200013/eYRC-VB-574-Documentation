@@ -24,7 +24,7 @@ div.wy-nav-content {
 	height: 100%;
 }
 
-p, h1, h2, h3 {
+p, h1, h2, h3, h4, h5, h6 {
 	color: #e3e3e3;
 }
 
@@ -56,6 +56,27 @@ p a.reference.external {
 }
 
 p a.reference.external:hover {
+	color: #2AADC1;
+	font-weight: bold;
+}
+
+div#when-ur5-2-arm-is-busy.section p strong {
+	color: #ffffff;
+}
+
+div#indices-and-source-codes.section a.reference.external{
+	color: #e3e3e3;
+}
+
+div#contact-us.section a.reference.external{
+	color: #e3e3e3;
+}
+
+li a.reference.external {
+	color: #2AADC1;
+}
+
+li a.reference.external:hover {
 	color: #2AADC1;
 	font-weight: bold;
 }

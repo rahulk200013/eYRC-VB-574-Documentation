@@ -1,0 +1,16 @@
+.. _xxx_bin_to_home_y:
+
+xxx_bin_to_home_y.yaml
+======================
+
+|
+
+Description
+-----------
+
+Saved trajectory to go to home position\ **y** from \ **xxx** bin for UR5#2 arm.
+
+Where **xxx** can be 'red', 'yellow' or 'green'.
+
+and **y** can be 1, 2 or 3
+
