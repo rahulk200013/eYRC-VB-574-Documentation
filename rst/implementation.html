@@ -490,7 +490,7 @@ this camera we can determine the color of the packages in the following ways:</p
 <li>QR Detection</li>
 <li>Colour Detection</li>
 </ol>
-<p>For now, we will talk about only QR Decoding as it seems to be a more reliable approach.</p>
+<p>For now, we will talk about only QR Decoding as it is a more practical approach to identify items on the shelf. The colour detection method may get confuse if there are two different items of same colour on shelf. This is why in real life as well QR or barcode detection method is used to identify items.</p>
 <p>This is what the feed from the 2D camera(<em>left</em>) looks like:</p>
 <img alt="../_images/camera_feed.png" src="../_images/camera_feed.png" />
 <p>To decode QR codes, we now crop this image and make 12 different images of each package as you can see on the right in the above image.
@@ -546,7 +546,7 @@ Inventory spreadsheet which includes Inventory, Incoming Orders, Dispatched Orde
 <p>This is a ROS node called <a class="reference external" href="./pkg_ros_iot_bridge/scripts/node_action_server_ros_iot_bridge.html">node_action_server_ros_iot_bridge</a> which initializes an Action Server to perform all the IoT related tasks. You can refer to the API documentation of this node for details by clicking on the name of the node.</p>
 <p>This node can communicate using two IoT protocols:</p>
 <ol class="arabic simple">
-<li><a class="reference external" href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol">HTML</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol">HTTP</a></li>
 <li><a class="reference external" href="https://mqtt.org/">MQTT</a></li>
 </ol>
 <p>HTML protocol is used to push data to the spreadsheets whereas MQTT protocol is used to receive orders.</p>
